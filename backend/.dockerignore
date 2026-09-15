@@ -1,0 +1,9 @@
+# Test artifacts must never enter the backend image build context.
+# The docker simulator-sweep runner writes root-owned (mode 700)
+# simulator-workspaces/ dirs under test-results/; Docker's context sender
+# cannot read them and fails with "open ...: permission denied". These have
+# no place in the backend image anyway. Also drop the usual Python/test cruft.
+**/test-results/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc

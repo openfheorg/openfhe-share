@@ -1,0 +1,53 @@
+@startuml
+skinparam participantStyle rectangular
+skinparam ParticipantPadding 90
+skinparam NotePadding 16
+
+participant "Clients" as Clients
+participant "Server" as Server
+
+Server -> Clients: Task metadata\n(schema, HE depth, …)
+
+||| 
+
+note left of Clients
+  * Load and pre-process the data
+  * Encrypt using multi-party keys
+end note
+
+||| 
+
+Clients -> Server: Encrypted local ciphertexts
+
+||| 
+
+note right of Server
+  * For each client, calculate the risk score using encrypted matrix-vector multi-party
+  * Subtract the cut-off value from risk score.
+end note
+
+||| 
+
+Server -> Clients: Risk group result ciphertext(s)
+
+||| 
+
+note left of Clients
+  Compute partial decryption share using the received ciphertexts.
+end note
+
+||| 
+
+Clients -> Server: Partial decryption shares
+
+||| 
+
+note right of Server
+  Aggregate decryption shares across clients to obtain result.
+end note
+
+||| 
+
+Server -> Clients: Decrypted risk groups map\n(only to clients that own those patient data)
+
+@enduml

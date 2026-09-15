@@ -1,0 +1,22 @@
+# Python virtual environments
+.venv/
+.venv*/
+venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Locally built runtime wheels and simulator output
+backend/app/core/job_runner/nvflare_jobs/wheels/*.whl
+backend/app/core/job_runner/nvflare_jobs/outputs/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

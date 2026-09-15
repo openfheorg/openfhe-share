@@ -1,0 +1,7 @@
+# Backend test environment. Target Python 3.12, matching backend/Dockerfile
+# (python:3.12-slim); the backend uses 3.12-only f-string syntax.
+#     python3.12 -m venv .venv312 && . .venv312/bin/activate
+#     pip install -r requirements-dev.txt && pytest -q
+-r requirements.txt
+pytest>=8.0,<10
+pytest-asyncio>=0.23,<2

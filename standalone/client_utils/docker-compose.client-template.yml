@@ -1,0 +1,59 @@
+# Docker Compose template for one simulated Duality NVFLARE participant.
+# CLIENT sites start both services. Site3 is the INITIATOR and the launcher starts
+# only the client service because the backend already serves its job-results folder.
+#
+# Required launcher variables:
+#   SITE, CLIENT_TAR, JOB_RESULTS_DIR, CLIENT_RESULTS_PORT
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: client.Dockerfile
+    platform: linux/amd64
+    container_name: "duality-client-${SITE}"
+
+    environment:
+      NVFLARE_VENV_DIR: /opt/nvflare/.venv
+      NVFLARE_SERVER_BASE: /home/ubuntu/nvflare/workspace/duality_nvflare/prod_00
+      DUALITY_NVFLARE_HOST: "${SITE}"
+      NVFLARE_SERVER_TAR_PATH: /kits/client_startup_kit.tar
+      # Every simulated client writes to its own external site results directory.
+      DUALITY_NVFLARE_JOB_SAVE_LOCATION: "${CLIENT_JOB_SAVE_LOCATION}"
+      DUALITY_ENABLE_JOB_RESULTS_SYMLINK: "${ENABLE_JOB_RESULTS_SYMLINK}"
+      DUALITY_NVFLARE_LIB_UPDATE_DISABLED: "1"
+      # Hand ownership of trace files written to bind-mounted /job-results back to
+      # the host user (launcher sets these to your id -u/-g; empty = no-op).
+      DUALITY_HOST_UID: "${DUALITY_HOST_UID:-}"
+      DUALITY_HOST_GID: "${DUALITY_HOST_GID:-}"
+
+    volumes:
+      - "${CLIENT_TAR}:/kits/client_startup_kit.tar:ro"
+      - "${JOB_RESULTS_DIR}:/job-results"
+      - "./local_wheels:/opt/duality/local_wheels:ro"
+
+    restart: unless-stopped
+
+  results-agent:
+    build:
+      context: ./client-results-agent
+      dockerfile: Dockerfile
+    container_name: "duality-client-results-${SITE}"
+
+    environment:
+      DUALITY_CLIENT_SITE: "${SITE}"
+      DUALITY_NVFLARE_JOB_SAVE_LOCATION: /job-results
+      DUALITY_UI_ORIGINS: "${DUALITY_UI_ORIGINS:-}"
+
+    volumes:
+      - "${JOB_RESULTS_DIR}:/job-results:ro"
+
+    ports:
+      - "127.0.0.1:${CLIENT_RESULTS_PORT}:8088"
+
+    restart: unless-stopped
+
+networks:
+  default:
+    name: "${DUALITY_DOCKER_NETWORK:-duality_default}"
+    external: true

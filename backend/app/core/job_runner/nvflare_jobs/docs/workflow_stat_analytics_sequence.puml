@@ -1,0 +1,59 @@
+@startuml
+skinparam participantStyle rectangular
+skinparam ParticipantPadding 90
+skinparam NotePadding 16
+
+participant "Clients" as Clients
+participant "Server" as Server
+
+Server -> Clients: Task metadata\n(schema, workload, HE depth, …)
+
+||| 
+
+note left of Clients
+  * Load and Pre-process the data
+  * Encrypt using Multi-party keys
+end note
+
+||| 
+
+Clients -> Server: Encrypted local statistics\n(ciphertext)
+
+||| 
+
+note right of Server
+  * Aggregate across Clients
+  * Compute encrypted function
+end note
+
+||| 
+
+Server -> Clients: Aggregated result ciphertext(s)
+
+||| 
+
+note left of Clients
+  Compute Partial decryption share using the received ciphertexts.
+end note
+
+||| 
+
+Clients -> Server: Partial decryption shares
+
+||| 
+
+note right of Server
+  Aggregate decryption shares across Clients to obtain cleartext.
+end note
+
+||| 
+
+Server -> Clients: Decrypted aggregate
+
+||| 
+
+note left of Clients
+  Post-process the cleartext to obtain analysis result.
+end note
+
+@enduml

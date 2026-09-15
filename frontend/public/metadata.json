@@ -1,0 +1,19 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [{
+    "resource": [
+      {
+        "type": "Patient",
+        "interaction": [{"code": "read"}]
+      },
+      {
+        "type": "Observation",
+        "interaction": [{"code": "read"}, {"code": "create"}]
+      },
+      {
+        "type": "Condition",
+        "interaction": [{"code": "read"}]
+      }
+    ]
+  }]
+}

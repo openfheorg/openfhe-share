@@ -1,0 +1,29 @@
+[project]
+name = "share-client-desktop"
+version = "0.4.0"
+description = "SHARE Client desktop supervisor with login-assigned provisioning, NVFlare management, and an embedded local Results API."
+requires-python = ">=3.10"
+dependencies = [
+  "PySide6>=6.7,<7",
+  "requests>=2.31,<3",
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.32,<1",
+  "pydantic>=2.10,<3"
+]
+
+[project.scripts]
+share-client-desktop = "share_desktop.main:main"
+duality-client-desktop = "share_desktop.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+share_desktop = ["assets/icons/*", "assets/branding/*"]

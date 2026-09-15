@@ -1,0 +1,62 @@
+#local-only artifacts
+project.local.yml
+.env.local
+/nvflare_workspace/
+/client_utils/local_wheels/
+/docker_stage/local_wheels/
+
+# Build/output
+/dist/
+
+# Biomarker FHIR JSON (keep zips, ignore extracted json)
+/nvflare_stage/data/Biomarker_*.json
+
+# General Statistics FHIR JSON (keep zips, ignore extracted json)
+/nvflare_stage/data/Survivability_FHIR_Data_part*.json
+
+# data source config (built on the fly by defining sources in default.env.local)
+/client_utils/DUALITY_FHIR_BASE_CONFIG.json
+/docker_stage/DUALITY_FHIR_BASE_CONFIG.json
+
+# jobs storage
+/job-results/
+
+# Cloned sources (keep the folder via .gitkeep)
+cloned_repositories/*
+!cloned_repositories/.gitkeep
+
+#wheel
+client_utils/*.whl
+docker_stage/*.whl
+
+# Python junk
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.so
+*.egg-info/
+.build/
+build/
+dist/
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# Editors/OS
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Docker/Pytest caches
+**/.pytest_cache/
+
+#client build process
+client_utils/docker-compose.client.*.yml
+client_utils/mounted_datasources/
+client_utils/DUALITY_FHIR_BASE_CONFIG.json
+client_utils/.duality_no_local_datasource

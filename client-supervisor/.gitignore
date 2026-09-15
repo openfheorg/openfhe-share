@@ -1,0 +1,11 @@
+# Python/runtime artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Downloaded/installed client workspaces and backups
+/site*/
+/site*.backup-*/
+
+# Local SHARE Client state is stored under ~/.duality-client

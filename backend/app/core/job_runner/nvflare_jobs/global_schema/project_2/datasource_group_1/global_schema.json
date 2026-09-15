@@ -1,0 +1,596 @@
+{
+  "metadata": {
+    "biomarker_km_time_grid_max": 110,
+    "max_samples_per_time_step": {
+      "value": 135,
+      "time_grid_start": 0,
+      "time_grid_step": 0.1
+    },
+    "global_count_contingency_table": {
+      "value": 22000,
+      "column_id_1": "PBRM1",
+      "column_id_2": "gender"
+    },
+    "biomarker_covariates": [
+      "AGE",
+      "GENDER_Male",
+      "Mutation_burden.ABL1",
+      "Mutation_burden.ABRAXAS1",
+      "Mutation_burden.AGO2",
+      "Mutation_burden.AKT1",
+      "Mutation_burden.AKT2",
+      "Mutation_burden.AKT3",
+      "Mutation_burden.ALK",
+      "Mutation_burden.ALOX12B",
+      "Mutation_burden.AMER1",
+      "Mutation_burden.ANKRD11",
+      "Mutation_burden.APC",
+      "Mutation_burden.AR",
+      "Mutation_burden.ARAF",
+      "Mutation_burden.ARHGAP35",
+      "Mutation_burden.ARID1A",
+      "Mutation_burden.ARID1B",
+      "Mutation_burden.ARID2",
+      "Mutation_burden.ARID5B",
+      "Mutation_burden.ASXL1",
+      "Mutation_burden.ASXL2",
+      "Mutation_burden.ATM",
+      "Mutation_burden.ATR",
+      "Mutation_burden.ATRX",
+      "Mutation_burden.ATXN7",
+      "Mutation_burden.AXIN1",
+      "Mutation_burden.AXIN2",
+      "Mutation_burden.AXL",
+      "Mutation_burden.B2M",
+      "Mutation_burden.BAP1",
+      "Mutation_burden.BARD1",
+      "Mutation_burden.BCL6",
+      "Mutation_burden.BCOR",
+      "Mutation_burden.BIRC3",
+      "Mutation_burden.BLM",
+      "Mutation_burden.BMPR1A",
+      "Mutation_burden.BRAF",
+      "Mutation_burden.BRCA1",
+      "Mutation_burden.BRCA2",
+      "Mutation_burden.BRD4",
+      "Mutation_burden.BRIP1",
+      "Mutation_burden.BTK",
+      "Mutation_burden.CARD11",
+      "Mutation_burden.CARM1",
+      "Mutation_burden.CASP8",
+      "Mutation_burden.CBFB",
+      "Mutation_burden.CBL",
+      "Mutation_burden.CD276",
+      "Mutation_burden.CD79A",
+      "Mutation_burden.CDC73",
+      "Mutation_burden.CDH1",
+      "Mutation_burden.CDK12",
+      "Mutation_burden.CDK8",
+      "Mutation_burden.CDKN1B",
+      "Mutation_burden.CDKN2A",
+      "Mutation_burden.CHEK1",
+      "Mutation_burden.CHEK2",
+      "Mutation_burden.CIC",
+      "Mutation_burden.COP1",
+      "Mutation_burden.CREBBP",
+      "Mutation_burden.CSDE1",
+      "Mutation_burden.CSF1R",
+      "Mutation_burden.CSF3R",
+      "Mutation_burden.CTCF",
+      "Mutation_burden.CTNNB1",
+      "Mutation_burden.CTR9",
+      "Mutation_burden.CUL3",
+      "Mutation_burden.CYLD",
+      "Mutation_burden.DAXX",
+      "Mutation_burden.DDR2",
+      "Mutation_burden.DICER1",
+      "Mutation_burden.DIS3",
+      "Mutation_burden.DNMT1",
+      "Mutation_burden.DNMT3A",
+      "Mutation_burden.DNMT3B",
+      "Mutation_burden.DOT1L",
+      "Mutation_burden.DROSHA",
+      "Mutation_burden.E2F3",
+      "Mutation_burden.EGFR",
+      "Mutation_burden.ELF3",
+      "Mutation_burden.EP300",
+      "Mutation_burden.EPAS1",
+      "Mutation_burden.EPHA3",
+      "Mutation_burden.EPHA5",
+      "Mutation_burden.EPHA7",
+      "Mutation_burden.EPHB1",
+      "Mutation_burden.ERBB2",
+      "Mutation_burden.ERBB3",
+      "Mutation_burden.ERBB4",
+      "Mutation_burden.ERCC2",
+      "Mutation_burden.ERCC3",
+      "Mutation_burden.ERCC4",
+      "Mutation_burden.ERCC5",
+      "Mutation_burden.ERF",
+      "Mutation_burden.ERG",
+      "Mutation_burden.ERRFI1",
+      "Mutation_burden.ESR1",
+      "Mutation_burden.ETV1",
+      "Mutation_burden.ETV6",
+      "Mutation_burden.EZH1",
+      "Mutation_burden.EZH2",
+      "Mutation_burden.FANCA",
+      "Mutation_burden.FANCC",
+      "Mutation_burden.FAT1",
+      "Mutation_burden.FBXW7",
+      "Mutation_burden.FGF3",
+      "Mutation_burden.FGFR1",
+      "Mutation_burden.FGFR2",
+      "Mutation_burden.FGFR3",
+      "Mutation_burden.FGFR4",
+      "Mutation_burden.FH",
+      "Mutation_burden.FLCN",
+      "Mutation_burden.FLT1",
+      "Mutation_burden.FLT3",
+      "Mutation_burden.FLT4",
+      "Mutation_burden.FOXA1",
+      "Mutation_burden.FOXL2",
+      "Mutation_burden.FOXO1",
+      "Mutation_burden.FOXP1",
+      "Mutation_burden.FUBP1",
+      "Mutation_burden.FYN",
+      "Mutation_burden.GATA1",
+      "Mutation_burden.GATA2",
+      "Mutation_burden.GATA3",
+      "Mutation_burden.GLI1",
+      "Mutation_burden.GNA11",
+      "Mutation_burden.GNAS",
+      "Mutation_burden.GPS2",
+      "Mutation_burden.GRIN2A",
+      "Mutation_burden.H1.2",
+      "Mutation_burden.HGF",
+      "Mutation_burden.HLA.A",
+      "Mutation_burden.HLA.B",
+      "Mutation_burden.HNF1A",
+      "Mutation_burden.ICOSLG",
+      "Mutation_burden.IDH1",
+      "Mutation_burden.IDH2",
+      "Mutation_burden.IFNGR1",
+      "Mutation_burden.IGF1R",
+      "Mutation_burden.IGF2",
+      "Mutation_burden.IKBKE",
+      "Mutation_burden.IKZF1",
+      "Mutation_burden.IL7R",
+      "Mutation_burden.INHA",
+      "Mutation_burden.INHBA",
+      "Mutation_burden.INPP4A",
+      "Mutation_burden.INPP4B",
+      "Mutation_burden.INPPL1",
+      "Mutation_burden.INSR",
+      "Mutation_burden.IRF4",
+      "Mutation_burden.IRS1",
+      "Mutation_burden.IRS2",
+      "Mutation_burden.JAK1",
+      "Mutation_burden.JAK2",
+      "Mutation_burden.JAK3",
+      "Mutation_burden.JUN",
+      "Mutation_burden.KDM5A",
+      "Mutation_burden.KDM5C",
+      "Mutation_burden.KDM6A",
+      "Mutation_burden.KDR",
+      "Mutation_burden.KEAP1",
+      "Mutation_burden.KIT",
+      "Mutation_burden.KLF4",
+      "Mutation_burden.KMT2A",
+      "Mutation_burden.KMT2B",
+      "Mutation_burden.KMT2C",
+      "Mutation_burden.KMT2D",
+      "Mutation_burden.KRAS",
+      "Mutation_burden.LATS1",
+      "Mutation_burden.LATS2",
+      "Mutation_burden.LZTR1",
+      "Mutation_burden.MALT1",
+      "Mutation_burden.MAP2K1",
+      "Mutation_burden.MAP2K2",
+      "Mutation_burden.MAP2K4",
+      "Mutation_burden.MAP3K1",
+      "Mutation_burden.MAP3K13",
+      "Mutation_burden.MAPKAP1",
+      "Mutation_burden.MAX",
+      "Mutation_burden.MDC1",
+      "Mutation_burden.MED12",
+      "Mutation_burden.MEF2B",
+      "Mutation_burden.MEN1",
+      "Mutation_burden.MET",
+      "Mutation_burden.MGA",
+      "Mutation_burden.MITF",
+      "Mutation_burden.MLH1",
+      "Mutation_burden.MPL",
+      "Mutation_burden.MRE11",
+      "Mutation_burden.MSH2",
+      "Mutation_burden.MSH3",
+      "Mutation_burden.MSH6",
+      "Mutation_burden.MSI1",
+      "Mutation_burden.MST1",
+      "Mutation_burden.MST1R",
+      "Mutation_burden.MTOR",
+      "Mutation_burden.MUTYH",
+      "Mutation_burden.MYCN",
+      "Mutation_burden.MYOD1",
+      "Mutation_burden.NBN",
+      "Mutation_burden.NCOA3",
+      "Mutation_burden.NCOR1",
+      "Mutation_burden.NEGR1",
+      "Mutation_burden.NF1",
+      "Mutation_burden.NF2",
+      "Mutation_burden.NFE2L2",
+      "Mutation_burden.NKX2.1",
+      "Mutation_burden.NOTCH1",
+      "Mutation_burden.NOTCH2",
+      "Mutation_burden.NOTCH3",
+      "Mutation_burden.NOTCH4",
+      "Mutation_burden.NRAS",
+      "Mutation_burden.NSD1",
+      "Mutation_burden.NSD2",
+      "Mutation_burden.NSD3",
+      "Mutation_burden.NTRK1",
+      "Mutation_burden.NTRK2",
+      "Mutation_burden.NTRK3",
+      "Mutation_burden.NUP93",
+      "Mutation_burden.PAK1",
+      "Mutation_burden.PAK5",
+      "Mutation_burden.PALB2",
+      "Mutation_burden.PARP1",
+      "Mutation_burden.PAX5",
+      "Mutation_burden.PBRM1",
+      "Mutation_burden.PDCD1",
+      "Mutation_burden.PDGFRA",
+      "Mutation_burden.PDGFRB",
+      "Mutation_burden.PGR",
+      "Mutation_burden.PHOX2B",
+      "Mutation_burden.PIK3C2G",
+      "Mutation_burden.PIK3C3",
+      "Mutation_burden.PIK3CA",
+      "Mutation_burden.PIK3CB",
+      "Mutation_burden.PIK3CD",
+      "Mutation_burden.PIK3CG",
+      "Mutation_burden.PIK3R1",
+      "Mutation_burden.PIK3R2",
+      "Mutation_burden.PIK3R3",
+      "Mutation_burden.PLCG2",
+      "Mutation_burden.PLK2",
+      "Mutation_burden.PMS1",
+      "Mutation_burden.PMS2",
+      "Mutation_burden.POLD1",
+      "Mutation_burden.POLE",
+      "Mutation_burden.PPARG",
+      "Mutation_burden.PPM1D",
+      "Mutation_burden.PPP2R1A",
+      "Mutation_burden.PRDM1",
+      "Mutation_burden.PRDM14",
+      "Mutation_burden.PREX2",
+      "Mutation_burden.PRKCI",
+      "Mutation_burden.PRKD1",
+      "Mutation_burden.PRKN",
+      "Mutation_burden.PTCH1",
+      "Mutation_burden.PTEN",
+      "Mutation_burden.PTPN11",
+      "Mutation_burden.PTPRD",
+      "Mutation_burden.PTPRS",
+      "Mutation_burden.PTPRT",
+      "Mutation_burden.RAD21",
+      "Mutation_burden.RAD50",
+      "Mutation_burden.RAD54L",
+      "Mutation_burden.RAF1",
+      "Mutation_burden.RARA",
+      "Mutation_burden.RASA1",
+      "Mutation_burden.RB1",
+      "Mutation_burden.RBM10",
+      "Mutation_burden.RECQL",
+      "Mutation_burden.RECQL4",
+      "Mutation_burden.REL",
+      "Mutation_burden.RET",
+      "Mutation_burden.RICTOR",
+      "Mutation_burden.RNF43",
+      "Mutation_burden.ROS1",
+      "Mutation_burden.RPS6KA4",
+      "Mutation_burden.RPS6KB2",
+      "Mutation_burden.RPTOR",
+      "Mutation_burden.RTEL1.TNFRSF6B",
+      "Mutation_burden.RUNX1",
+      "Mutation_burden.RXRA",
+      "Mutation_burden.RYBP",
+      "Mutation_burden.SDHA",
+      "Mutation_burden.SESN2",
+      "Mutation_burden.SESN3",
+      "Mutation_burden.SETD2",
+      "Mutation_burden.SETDB1",
+      "Mutation_burden.SF3B1",
+      "Mutation_burden.SH2B3",
+      "Mutation_burden.SHQ1",
+      "Mutation_burden.SLX4",
+      "Mutation_burden.SMAD2",
+      "Mutation_burden.SMAD3",
+      "Mutation_burden.SMAD4",
+      "Mutation_burden.SMARCA2",
+      "Mutation_burden.SMARCA4",
+      "Mutation_burden.SMARCB1",
+      "Mutation_burden.SMARCD1",
+      "Mutation_burden.SMO",
+      "Mutation_burden.SOS1",
+      "Mutation_burden.SOX17",
+      "Mutation_burden.SOX2",
+      "Mutation_burden.SOX9",
+      "Mutation_burden.SPEN",
+      "Mutation_burden.SPOP",
+      "Mutation_burden.SPRED1",
+      "Mutation_burden.SRC",
+      "Mutation_burden.STAG2",
+      "Mutation_burden.STAT3",
+      "Mutation_burden.STAT5A",
+      "Mutation_burden.STAT5B",
+      "Mutation_burden.STK11",
+      "Mutation_burden.SUFU",
+      "Mutation_burden.SUZ12",
+      "Mutation_burden.SYK",
+      "Mutation_burden.TAP1",
+      "Mutation_burden.TAP2",
+      "Mutation_burden.TBX3",
+      "Mutation_burden.TCF3",
+      "Mutation_burden.TCF7L2",
+      "Mutation_burden.TEK",
+      "Mutation_burden.TENT5C",
+      "Mutation_burden.TERT",
+      "Mutation_burden.TET1",
+      "Mutation_burden.TET2",
+      "Mutation_burden.TGFBR1",
+      "Mutation_burden.TGFBR2",
+      "Mutation_burden.TMPRSS2",
+      "Mutation_burden.TNFAIP3",
+      "Mutation_burden.TOP1",
+      "Mutation_burden.TP53",
+      "Mutation_burden.TP53BP1",
+      "Mutation_burden.TP63",
+      "Mutation_burden.TRAF2",
+      "Mutation_burden.TRAF7",
+      "Mutation_burden.TSC1",
+      "Mutation_burden.TSC2",
+      "Mutation_burden.TSHR",
+      "Mutation_burden.U2AF1",
+      "Mutation_burden.UPF1",
+      "Mutation_burden.WT1",
+      "Mutation_burden.XPO1",
+      "Mutation_burden.XRCC2",
+      "Mutation_burden.YES1",
+      "Mutation_burden.ZFHX3",
+      "Mutation_burden.ZNRF3",
+      "Mutation_burden.ZRSR2"
+    ]
+  },
+  "columns": {
+    "income": {
+      "type": "numeric",
+      "global_max": 761013,
+      "global_min": 0,
+      "global_count": 107604
+    },
+    "gender": {
+      "type": "categorical",
+      "categories": [
+        "MALE",
+        "FEMALE"
+      ]
+    },
+    "ethnicity": {
+      "type": "categorical",
+      "categories": [
+        "White",
+        "African American",
+        "Asian",
+        "Hispanic",
+        "Other"
+      ]
+    },
+    "Age": {
+      "type": "numeric",
+      "global_max": 100,
+      "global_min": 0,
+      "global_count": 750
+    },
+    "Sex": {
+      "type": "categorical",
+      "categories": [
+        "Male",
+        "Female"
+      ]
+    },
+    "Medication": {
+      "type": "categorical",
+      "categories": [
+        "NIVOLUMAB",
+        "EVEROLIMUS"
+      ]
+    },
+    "ARID1A": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "ATM": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "BAP1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "COL9A3": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "KDM5C": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "MTOR": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "NF2": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PBRM1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PCK1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PIK3CA": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PTEN": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "S100B": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "SETD2": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "SMARCA4": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "TCEB1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "TP53": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "TRMT2B": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "TSC1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "USP32": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "VHL": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "WNT8A": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "ZNF800": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PFS": {
+      "type": "numeric",
+      "global_max": 62,
+      "global_min": 0
+    },
+    "PFS_CNSR": {
+      "type": "boolean"
+    },
+    "OS": {
+      "type": "numeric",
+      "global_max": 62,
+      "global_min": 0
+    },
+    "OS_CNSR": {
+      "type": "boolean"
+    },
+    "risk_score_group": {
+      "type": "categorical",
+      "categories": [
+        "low_score",
+        "high_score"
+      ]
+    },
+    "time": {
+      "type": "numeric",
+      "global_max": 110,
+      "global_min": 0
+    },
+    "event": {
+      "type": "boolean"
+    },
+    "_comment": "risk_score, time, and event columns are dedicated for biomarker discovery job"
+  }
+}

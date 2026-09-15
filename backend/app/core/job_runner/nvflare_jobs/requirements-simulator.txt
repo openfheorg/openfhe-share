@@ -1,0 +1,29 @@
+# Pinned runtime dependencies for bare-host NVFlare simulator runs and the pytest
+# sweep (see README.md, "Host environment"). Mirrors INSTALL_REQUIRES in
+# wheels/APIWheelBuilderCI.py, with openfhe pinned to an exact build.
+#
+# PyPI ships each openfhe release as two py3-none-any wheels that each embed a
+# single CPython extension: the .22.4 build is compiled for Python 3.10 on
+# Ubuntu 22.04, the .24.4 build for Python 3.12 on Ubuntu 24.04. The .22.4 wheel
+# only declares Requires-Python >=3.10, so a plain exact pin would install it on
+# Python 3.12 and fail at import time. The environment markers below choose the
+# build that matches the interpreter, so this file works unchanged in a venv
+# created from the OS's default python3 on either release.
+#
+# Install the duality_nvflare_lib wheel afterwards with --no-deps so pip cannot
+# replace this pin with the wheel's looser "openfhe>=1.5" requirement.
+numpy==2.2.6
+python-dateutil>=2.8.2
+pandas==2.3.3
+scipy==1.15.3
+requests>=2.32.5,<=2.33.1
+nvflare==2.7.2
+openfhe==1.5.1.0.22.4; python_version < "3.12"    # Ubuntu 22.04 / Python 3.10
+openfhe==1.5.1.0.24.4; python_version >= "3.12"   # Ubuntu 24.04 / Python 3.12
+cryptography>=43.0.3
+liboqs-python>=0.14.0
+boto3==1.41.1
+matplotlib==3.10.7
+statsmodels==0.14.4
+# Optional: process memory sampling in apis/profiler.py (skipped when absent).
+psutil>=5.9

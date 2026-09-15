@@ -1,0 +1,63 @@
+%% stat_analytics job: class inheritance (NVFlare + openfhe_flare) and API usage
+%% Render: paste into Mermaid Live Editor, or use mermaid-cli: mmdc -i stat_analytics_openfhe_inheritance.mmd -o out.svg
+
+flowchart TB
+  subgraph NVFlare["NVFlare (external package)"]
+    Aggregator["app_common.abstract.aggregator.Aggregator"]
+    Executor["apis.executor.Executor"]
+    ModelPersistor["app_common.abstract.model_persistor.ModelPersistor"]
+    FLComponent["apis.fl_component.FLComponent"]
+    SAG["app_common.workflows.scatter_and_gather.ScatterAndGather"]
+  end
+
+  subgraph OFH_apis["openfhe_flare.apis"]
+    HEAggregator["HEAggregator"]
+    HEExecutor["HEExecutor"]
+    HEPersistor["HEPersistor"]
+    Profiler["Profiler"]
+    OpenfheManager["OpenfheManager"]
+    StatAnalyticsMgr["StatAnalyticsManager"]
+    StatEvt["StatAnalyticsEventType"]
+    Utils["utils"]
+    PQCRouting["PQCRoutingManager"]
+  end
+
+  subgraph OFH_wf["openfhe_flare.workflows"]
+    customSAG["customSAG"]
+  end
+
+  subgraph Job["jobs/stat_analytics/app/custom"]
+    AnalyticsAgg["AnalyticsAggregator"]
+    AnalyticsExec["AnalyticsExecutor"]
+    AnalyticsPers["AnalyticsPersistor"]
+  end
+
+  %% --- Inheritance (solid) ---
+  Aggregator --> HEAggregator --> AnalyticsAgg
+  Executor --> HEExecutor --> AnalyticsExec
+  ModelPersistor --> HEPersistor --> AnalyticsPers
+  FLComponent --> Profiler
+  SAG --> customSAG
+
+  %% --- openfhe_flare internal composition ---
+  HEAggregator --> OpenfheManager
+  HEAggregator --> StatEvt
+  HEExecutor --> OpenfheManager
+  HEExecutor --> PQCRouting
+  HEExecutor --> StatEvt
+  HEPersistor --> OpenfheManager
+
+  %% --- stat_analytics uses APIs (dotted) ---
+  AnalyticsAgg -.->|uses| StatAnalyticsMgr
+  AnalyticsAgg -.->|uses| StatEvt
+  AnalyticsExec -.->|uses| StatAnalyticsMgr
+  AnalyticsExec -.->|uses| StatEvt
+  AnalyticsExec -.->|inherits| HEAggregator
+  AnalyticsPers -.->|inherits| HEAggregator
+
+  StatAnalyticsMgr -.->|stat helpers| Utils
+  Profiler -.->|parse_stat_analytics_phase_event| StatEvt
+
+  %% --- Config wiring (server): Profiler + workflows reference openfhe_flare ---
+  classDef configRef fill:#e8f4e8,stroke:#2d6a2d
+  class Profiler,customSAG configRef

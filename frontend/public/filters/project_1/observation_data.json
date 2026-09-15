@@ -1,0 +1,473 @@
+{
+  "version": "2.0",
+  "resource": {
+    "type": "Observation"
+  },
+  "localPass": {
+    "observationModel": {
+      "variantAssessmentCode": {
+        "extractor": "component_or_text_code",
+        "args": {
+          "componentCodeSystem": "",
+          "componentCode": "",
+          "valueMap": {
+            "69548-6": [
+              "69548-6"
+            ]
+          },
+          "idFallback": {}
+        }
+      },
+      "positive": {
+        "extractor": "interpretation_positive"
+      },
+      "changeType": {
+        "extractor": "component_or_text_code",
+        "args": {
+          "componentCodeSystem": "http://loinc.org",
+          "componentCode": "48019-4",
+          "valueMap": {
+            "deletion": [
+              "deletion",
+              "so:0000159"
+            ],
+            "duplication": [
+              "duplication",
+              "so:1000035"
+            ],
+            "amplification": [
+              "amplification",
+              "copy_number_gain",
+              "so:0001742",
+              "so:0001869"
+            ]
+          },
+          "idFallback": {
+            "deletion": [
+              "-deletion-",
+              "-del-"
+            ],
+            "duplication": [
+              "-duplication-",
+              "-dup-"
+            ],
+            "amplification": [
+              "-amplification-",
+              "-amp-"
+            ]
+          }
+        }
+      },
+      "region": {
+        "extractor": "component_or_id_region",
+        "args": {
+          "componentCodeSystem": "http://loinc.org",
+          "componentCode": "48013-7",
+          "idRegex": "(?:deletion|amplification|duplication)-(.+)$"
+        }
+      }
+    },
+    "patientMetrics": {
+      "deletions": {
+        "aggregate": "count",
+        "where": {
+          "variantAssessmentCode": "69548-6",
+          "positive": true,
+          "changeType": "deletion"
+        }
+      },
+      "amplifications": {
+        "aggregate": "count",
+        "where": {
+          "variantAssessmentCode": "69548-6",
+          "positive": true,
+          "changeType": "amplification"
+        }
+      },
+      "duplications": {
+        "aggregate": "count",
+        "where": {
+          "variantAssessmentCode": "69548-6",
+          "positive": true,
+          "changeType": "duplication"
+        }
+      },
+      "total": {
+        "aggregate": "sumMetrics",
+        "metrics": [
+          "deletions",
+          "amplifications",
+          "duplications"
+        ]
+      },
+      "deletionRegionSet": {
+        "aggregate": "set",
+        "where": {
+          "variantAssessmentCode": "69548-6",
+          "positive": true,
+          "changeType": "deletion"
+        },
+        "value": "region"
+      },
+      "amplificationRegionSet": {
+        "aggregate": "set",
+        "where": {
+          "variantAssessmentCode": "69548-6",
+          "positive": true,
+          "changeType": "amplification"
+        },
+        "value": "region"
+      },
+      "variantAssessmentCodes": {
+        "aggregate": "set",
+        "where": {},
+        "value": "variantAssessmentCode"
+      }
+    }
+  },
+  "controls": [
+    {
+      "id": "variantAssessmentCode",
+      "field": "variantAssessmentCode",
+      "label": "Genetic Variant Assessment Type",
+      "type": "select",
+      "default": "69548-6",
+      "options": [
+        {
+          "label": "Any",
+          "value": ""
+        },
+        {
+          "label": "Genetic variant assessment (LOINC 69548-6)",
+          "value": "69548-6"
+        }
+      ],
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "variantAssessmentCode",
+            "operator": "IN",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "variantAssessmentCodes",
+        "operator": "IN",
+        "valueFrom": "value"
+      },
+      "ui": {
+        "span": "full"
+      }
+    },
+    {
+      "id": "deletionRegions",
+      "field": "deletionRegions",
+      "label": "Deletion Regions",
+      "type": "multi-select-grid",
+      "default": [],
+      "options": [
+        {
+          "label": "10q23.31",
+          "value": "10q23.31"
+        },
+        {
+          "label": "10q26.3",
+          "value": "10q26.3"
+        },
+        {
+          "label": "11q12.3",
+          "value": "11q12.3"
+        },
+        {
+          "label": "11q23.1",
+          "value": "11q23.1"
+        },
+        {
+          "label": "12q24.33",
+          "value": "12q24.33"
+        },
+        {
+          "label": "14q32.33",
+          "value": "14q32.33"
+        },
+        {
+          "label": "15q11.2",
+          "value": "15q11.2"
+        },
+        {
+          "label": "19p13.3",
+          "value": "19p13.3"
+        },
+        {
+          "label": "19q13.42",
+          "value": "19q13.42"
+        },
+        {
+          "label": "1p36.11",
+          "value": "1p36.11"
+        },
+        {
+          "label": "1p36.31",
+          "value": "1p36.31"
+        },
+        {
+          "label": "1q42.3",
+          "value": "1q42.3"
+        },
+        {
+          "label": "22q11.21",
+          "value": "22q11.21"
+        },
+        {
+          "label": "2q37.1",
+          "value": "2q37.1"
+        },
+        {
+          "label": "3p21.1",
+          "value": "3p21.1"
+        },
+        {
+          "label": "5q14.1",
+          "value": "5q14.1"
+        },
+        {
+          "label": "6p12.1",
+          "value": "6p12.1"
+        },
+        {
+          "label": "6p21.32",
+          "value": "6p21.32"
+        },
+        {
+          "label": "6p22.2",
+          "value": "6p22.2"
+        },
+        {
+          "label": "6q25.2",
+          "value": "6q25.2"
+        },
+        {
+          "label": "8p23.2",
+          "value": "8p23.2"
+        },
+        {
+          "label": "9p21.3",
+          "value": "9p21.3"
+        },
+        {
+          "label": "9q34.3",
+          "value": "9q34.3"
+        }
+      ],
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "deletionRegions",
+            "operator": "IN",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "deletionRegionSet",
+        "operator": "IN",
+        "valueFrom": "values"
+      },
+      "ui": {
+        "span": "full"
+      }
+    },
+    {
+      "id": "amplificationRegions",
+      "field": "amplificationRegions",
+      "label": "Amplification Regions",
+      "type": "multi-select-grid",
+      "default": [],
+      "options": [
+        {
+          "label": "11q13.3",
+          "value": "11q13.3"
+        },
+        {
+          "label": "11q14.1",
+          "value": "11q14.1"
+        },
+        {
+          "label": "12q24.32",
+          "value": "12q24.32"
+        },
+        {
+          "label": "17q21.2",
+          "value": "17q21.2"
+        },
+        {
+          "label": "17q25.3",
+          "value": "17q25.3"
+        },
+        {
+          "label": "1p36.32",
+          "value": "1p36.32"
+        },
+        {
+          "label": "1q21.3",
+          "value": "1q21.3"
+        },
+        {
+          "label": "1q32.1",
+          "value": "1q32.1"
+        },
+        {
+          "label": "20q13.33",
+          "value": "20q13.33"
+        },
+        {
+          "label": "21q22.3",
+          "value": "21q22.3"
+        },
+        {
+          "label": "2q37.3",
+          "value": "2q37.3"
+        },
+        {
+          "label": "5p15.33",
+          "value": "5p15.33"
+        },
+        {
+          "label": "5q31.3",
+          "value": "5q31.3"
+        },
+        {
+          "label": "5q35.3",
+          "value": "5q35.3"
+        },
+        {
+          "label": "6p21.2",
+          "value": "6p21.2"
+        },
+        {
+          "label": "6q21",
+          "value": "6q21"
+        },
+        {
+          "label": "7p22.2",
+          "value": "7p22.2"
+        },
+        {
+          "label": "7q36.2",
+          "value": "7q36.2"
+        },
+        {
+          "label": "8p11.21",
+          "value": "8p11.21"
+        },
+        {
+          "label": "8q24.3",
+          "value": "8q24.3"
+        },
+        {
+          "label": "9q34.11",
+          "value": "9q34.11"
+        }
+      ],
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "amplificationRegions",
+            "operator": "IN",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "amplificationRegionSet",
+        "operator": "IN",
+        "valueFrom": "values"
+      },
+      "ui": {
+        "span": "full"
+      }
+    },
+    {
+      "id": "minDeletions",
+      "field": "minDeletions",
+      "label": "Minimum Number of Deletions",
+      "type": "number",
+      "default": 0,
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "minDeletions",
+            "operator": ">=",
+            "valueFrom": "value",
+            "transform": "int"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "deletions",
+        "operator": ">=",
+        "valueFrom": "value"
+      },
+      "ui": {
+        "span": "third"
+      }
+    },
+    {
+      "id": "minAmplifications",
+      "field": "minAmplifications",
+      "label": "Minimum Number of Amplifications",
+      "type": "number",
+      "default": 0,
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "minAmplifications",
+            "operator": ">=",
+            "valueFrom": "value",
+            "transform": "int"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "amplifications",
+        "operator": ">=",
+        "valueFrom": "value"
+      },
+      "ui": {
+        "span": "third"
+      }
+    },
+    {
+      "id": "minTotal",
+      "field": "minTotal",
+      "label": "Minimum Total Mutation Count",
+      "type": "number",
+      "default": 0,
+      "save": {
+        "targets": [
+          {
+            "filter_group": "OBSERVATION_DATA",
+            "field": "minTotal",
+            "operator": ">=",
+            "valueFrom": "value",
+            "transform": "int"
+          }
+        ]
+      },
+      "localPass": {
+        "metric": "total",
+        "operator": ">=",
+        "valueFrom": "value"
+      },
+      "ui": {
+        "span": "third"
+      }
+    }
+  ]
+}

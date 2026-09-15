@@ -1,0 +1,37 @@
+{
+  "format_version": 2,
+  "server": {
+    "heart_beat_timeout": 6000,
+    "task_request_interval": 1
+  },
+  "components": [
+    {
+      "id": "aggregator",
+      "path": "response_aggregator.CustomResponseAggregator",
+      "args": {}
+    },
+    {
+      "id": "shareable_generator",
+      "path": "nvflare.app_common.shareablegenerators.full_model_shareable_generator.FullModelShareableGenerator",
+      "args": {}
+    }
+  ],
+  "task_data_filters": [],
+  "task_result_filters": [],
+  "workflows": [
+    {
+      "id": "sag",
+      "path": "nvflare.app_common.workflows.scatter_and_gather.ScatterAndGather",
+      "args": {
+        "num_rounds": 1,
+        "min_clients": 1,
+        "train_task_name": "duality_task",
+        "aggregator_id": "aggregator",
+        "shareable_generator_id": "shareable_generator",
+        "allow_empty_global_weights": true,
+        "wait_time_after_min_received": 10,
+        "task_check_period": 0.5
+      }
+    }
+  ]
+}

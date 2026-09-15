@@ -1,0 +1,5 @@
+# Test-only dependencies for the NVFlare simulator sweep (tests/).
+# NOT part of the backend runtime image — keep these out of backend/requirements.txt.
+# Install into the same environment that has the duality_nvflare_lib wheel:
+#     pip install -r backend/app/core/job_runner/nvflare_jobs/tests/requirements-test.txt
+pytest==9.0.3

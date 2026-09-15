@@ -1,0 +1,1887 @@
+{
+  "version": "1",
+  "computations": {
+    "kaplan-meier": {
+      "properties": {
+        "group_column_id": {
+          "columns": {
+            "sex": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "gender": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "arid1a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11110"
+                    }
+                  ]
+                }
+              ]
+            },
+            "atm": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:795"
+                    }
+                  ]
+                }
+              ]
+            },
+            "bap1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:950"
+                    }
+                  ]
+                }
+              ]
+            },
+            "col9a3": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:2219"
+                    }
+                  ]
+                }
+              ]
+            },
+            "kdm5c": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11114"
+                    }
+                  ]
+                }
+              ]
+            },
+            "mtor": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:3942"
+                    }
+                  ]
+                }
+              ]
+            },
+            "nf2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:7773"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pbrm1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:30064"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pck1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8724"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pik3ca": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8975"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pten": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:9588"
+                    }
+                  ]
+                }
+              ]
+            },
+            "s100b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10500"
+                    }
+                  ]
+                }
+              ]
+            },
+            "setd2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:18420"
+                    }
+                  ]
+                }
+              ]
+            },
+            "smarca4": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11100"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tceb1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10879"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tp53": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11998"
+                    }
+                  ]
+                }
+              ]
+            },
+            "trmt2b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:25748"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tsc1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12362"
+                    }
+                  ]
+                }
+              ]
+            },
+            "usp32": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:19143"
+                    }
+                  ]
+                }
+              ]
+            },
+            "vhl": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12687"
+                    }
+                  ]
+                }
+              ]
+            },
+            "wnt8a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12788"
+                    }
+                  ]
+                }
+              ]
+            },
+            "znf800": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:27267"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "time_column_id": {
+          "columns": {
+            "os": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "censoring_column_id": {
+          "columns": {
+            "os_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "OS_CNSR",
+                        "os_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "PFS_CNSR",
+                        "pfs_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "mean": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "os": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "os_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "OS_CNSR",
+                        "os_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "PFS_CNSR",
+                        "pfs_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "stdev": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "os": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "os_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "OS_CNSR",
+                        "os_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "PFS_CNSR",
+                        "pfs_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "chi2": {
+      "properties": {
+        "category_column_1_id": {
+          "columns": {
+            "sex": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "gender": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "arid1a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11110"
+                    }
+                  ]
+                }
+              ]
+            },
+            "atm": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:795"
+                    }
+                  ]
+                }
+              ]
+            },
+            "bap1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:950"
+                    }
+                  ]
+                }
+              ]
+            },
+            "col9a3": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:2219"
+                    }
+                  ]
+                }
+              ]
+            },
+            "kdm5c": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11114"
+                    }
+                  ]
+                }
+              ]
+            },
+            "mtor": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:3942"
+                    }
+                  ]
+                }
+              ]
+            },
+            "nf2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:7773"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pbrm1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:30064"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pck1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8724"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pik3ca": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8975"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pten": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:9588"
+                    }
+                  ]
+                }
+              ]
+            },
+            "s100b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10500"
+                    }
+                  ]
+                }
+              ]
+            },
+            "setd2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:18420"
+                    }
+                  ]
+                }
+              ]
+            },
+            "smarca4": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11100"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tceb1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10879"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tp53": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11998"
+                    }
+                  ]
+                }
+              ]
+            },
+            "trmt2b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:25748"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tsc1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12362"
+                    }
+                  ]
+                }
+              ]
+            },
+            "usp32": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:19143"
+                    }
+                  ]
+                }
+              ]
+            },
+            "vhl": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12687"
+                    }
+                  ]
+                }
+              ]
+            },
+            "wnt8a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12788"
+                    }
+                  ]
+                }
+              ]
+            },
+            "znf800": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:27267"
+                    }
+                  ]
+                }
+              ]
+            },
+            "medication": {
+              "resources": [
+                {
+                  "resourceType": "MedicationStatement"
+                }
+              ]
+            }
+          }
+        },
+        "category_column_2_id": {
+          "columns": {
+            "sex": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "gender": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "arid1a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11110"
+                    }
+                  ]
+                }
+              ]
+            },
+            "atm": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:795"
+                    }
+                  ]
+                }
+              ]
+            },
+            "bap1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:950"
+                    }
+                  ]
+                }
+              ]
+            },
+            "col9a3": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:2219"
+                    }
+                  ]
+                }
+              ]
+            },
+            "kdm5c": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11114"
+                    }
+                  ]
+                }
+              ]
+            },
+            "mtor": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:3942"
+                    }
+                  ]
+                }
+              ]
+            },
+            "nf2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:7773"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pbrm1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:30064"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pck1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8724"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pik3ca": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8975"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pten": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:9588"
+                    }
+                  ]
+                }
+              ]
+            },
+            "s100b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10500"
+                    }
+                  ]
+                }
+              ]
+            },
+            "setd2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:18420"
+                    }
+                  ]
+                }
+              ]
+            },
+            "smarca4": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11100"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tceb1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10879"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tp53": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11998"
+                    }
+                  ]
+                }
+              ]
+            },
+            "trmt2b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:25748"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tsc1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12362"
+                    }
+                  ]
+                }
+              ]
+            },
+            "usp32": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:19143"
+                    }
+                  ]
+                }
+              ]
+            },
+            "vhl": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12687"
+                    }
+                  ]
+                }
+              ]
+            },
+            "wnt8a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12788"
+                    }
+                  ]
+                }
+              ]
+            },
+            "znf800": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:27267"
+                    }
+                  ]
+                }
+              ]
+            },
+            "medication": {
+              "resources": [
+                {
+                  "resourceType": "MedicationStatement"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "t-test": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "os": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "35658-4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "os_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "OS_CNSR",
+                        "os_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "pfs_cnsr": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "values": [
+                        "PFS_CNSR",
+                        "pfs_cnsr"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "category_column_1_id": {
+          "columns": {
+            "sex": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "gender": {
+              "resources": [
+                {
+                  "resourceType": "Patient"
+                }
+              ]
+            },
+            "arid1a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11110"
+                    }
+                  ]
+                }
+              ]
+            },
+            "atm": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:795"
+                    }
+                  ]
+                }
+              ]
+            },
+            "bap1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:950"
+                    }
+                  ]
+                }
+              ]
+            },
+            "col9a3": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:2219"
+                    }
+                  ]
+                }
+              ]
+            },
+            "kdm5c": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11114"
+                    }
+                  ]
+                }
+              ]
+            },
+            "mtor": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:3942"
+                    }
+                  ]
+                }
+              ]
+            },
+            "nf2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:7773"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pbrm1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:30064"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pck1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8724"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pik3ca": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:8975"
+                    }
+                  ]
+                }
+              ]
+            },
+            "pten": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:9588"
+                    }
+                  ]
+                }
+              ]
+            },
+            "s100b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10500"
+                    }
+                  ]
+                }
+              ]
+            },
+            "setd2": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:18420"
+                    }
+                  ]
+                }
+              ]
+            },
+            "smarca4": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11100"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tceb1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:10879"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tp53": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:11998"
+                    }
+                  ]
+                }
+              ]
+            },
+            "trmt2b": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:25748"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tsc1": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12362"
+                    }
+                  ]
+                }
+              ]
+            },
+            "usp32": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:19143"
+                    }
+                  ]
+                }
+              ]
+            },
+            "vhl": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12687"
+                    }
+                  ]
+                }
+              ]
+            },
+            "wnt8a": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:12788"
+                    }
+                  ]
+                }
+              ]
+            },
+            "znf800": {
+              "resources": [
+                {
+                  "resourceType": "Observation",
+                  "params": [
+                    {
+                      "name": "code",
+                      "value": "69548-6"
+                    },
+                    {
+                      "name": "component-code-value-concept",
+                      "value": "48018-6$http://www.genenames.org/geneId|HGNC:27267"
+                    }
+                  ]
+                }
+              ]
+            },
+            "medication": {
+              "resources": [
+                {
+                  "resourceType": "MedicationStatement"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

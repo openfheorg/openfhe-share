@@ -1,0 +1,26 @@
+{
+  "schema_strategy": {
+    "project_1": "Exact copy of the supplied existing global_schema.json.",
+    "project_2": "Copies the supplied baseline schema and replaces only metadata.biomarker_covariates with the sorted union of covariate values from every *_weights.csv in the matching datasource-group model package. Other metadata and columns are retained because they cannot be inferred from model-weight files."
+  },
+  "schemas": [
+    {
+      "project_id": 1,
+      "datasource_group_id": null,
+      "schema_path": "global_schema/project_1/global_schema.json",
+      "source": "global_schema.json",
+      "strategy": "Exact copy",
+      "unique_biomarker_covariate_count": 485,
+      "sha256": "1dc523cdb3acb0e6f4cd976126de2a3bb694078fee4b16f387fc101d0119b4ef"
+    },
+    {
+      "project_id": 2,
+      "datasource_group_id": 1,
+      "schema_path": "global_schema/project_2/datasource_group_1/global_schema.json",
+      "source_model_archive": "datasource_group_1.zip",
+      "weight_file_count": 45,
+      "unique_biomarker_covariate_count": 428,
+      "sha256": "83b3f79cf3dceee442934ffa928404572a339d25858d84514db1c211c98b6af9"
+    }
+  ]
+}

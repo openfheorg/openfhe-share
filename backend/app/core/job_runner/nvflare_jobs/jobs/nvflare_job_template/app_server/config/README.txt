@@ -1,0 +1,1 @@
+In config_fed_server.json, "min_clients" controls how many clients the aggregator should wait on before finalizing. Set this to the number of clients in the system.

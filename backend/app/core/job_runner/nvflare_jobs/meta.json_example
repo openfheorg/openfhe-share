@@ -1,0 +1,13 @@
+{
+  "name": "job_name",
+  "resource_spec": {},
+  "min_clients": 1,
+  "deploy_map": {
+    "app_client": [
+      "site1", "site2", "site3"
+    ],
+    "app_server": [
+      "server"
+    ]
+  }
+}

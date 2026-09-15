@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "resource": "Observation",
+  "controls": [
+    {
+      "id": "observation_filters_info",
+      "type": "label",
+      "default": "No observation filters are required at this time for this pipeline.",
+      "ui": {
+        "span": "full"
+      }
+    }
+  ]
+}

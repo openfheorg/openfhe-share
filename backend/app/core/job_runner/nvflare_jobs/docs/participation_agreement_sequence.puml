@@ -1,0 +1,21 @@
+@startuml
+skinparam participantStyle rectangular
+participant "Server" as Server
+participant "Clients" as Clients
+
+note over Server
+  Selects the data filters
+  Selects the functions to be computed
+end note
+Server -> Clients: Sends filter and function info
+
+note over Clients
+  Chooses to Agree or Disagree to participate
+end note
+Clients -> Server: Sends decision (Agree/Disagree)
+
+note over Server
+  Proceeds to next workflow with agreed clients
+end note
+
+@enduml

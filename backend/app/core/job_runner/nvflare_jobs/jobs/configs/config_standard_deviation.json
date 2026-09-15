@@ -1,0 +1,104 @@
+{
+  "format_version": 2,
+  "server": {
+    "heart_beat_timeout": 600
+  },
+  "components": [
+    {
+      "id": "persistor",
+      "path": "analytics_persistor.AnalyticsPersistor",
+      "args": {
+        "arch": "star",
+        "is_server_data_owner": true,
+        "is_server_contributing_to_aggregation": true,
+        "mult_depth": 3,
+        "scale_mod_size": 53,
+        "scaling_technique": "FLEXIBLEAUTO",
+        "key_switch_technique": "HYBRID",
+        "ckks_data_type": "REAL",
+        "generate_mult_keys": true,
+        "generate_index_keys": true,
+        "indices": [1, 2]
+      }
+    },
+    {
+      "id": "aggregator",
+      "path": "analytics_aggregator.AnalyticsAggregator",
+      "args": {
+        "filters_path": "custom/filters.json"
+      }
+    },
+    {
+      "id": "shareable_generator",
+      "path": "nvflare.app_common.shareablegenerators.full_model_shareable_generator.FullModelShareableGenerator",
+      "args": {}
+    },
+    {
+      "id": "profiler",
+      "path": "duality_nvflare_apis.profiler.Profiler",
+      "args": {
+        "log_file_name": "profile_summary.json",
+        "role": "server"
+      }
+    },
+    {
+      "id": "progress_writer",
+      "path": "backend_webhook_writer.BackendWebhookWriter"
+    },
+    {
+      "id": "progress_receiver",
+      "path": "backend_webhook_receiver.BackendWebhookReceiver",
+      "args": {
+        "events": [
+          "fed.analytix_log_stats"
+        ],
+        "writer_id": "progress_writer"
+      }
+    }
+  ],
+  "task_data_filters": [],
+  "task_result_filters": [],
+  "workflows": [
+    {
+      "id": "workflow_KeyGen",
+      "path": "duality_nvflare_workflows.customSAG.customSAG",
+      "args": {
+        "min_clients": 0,
+        "num_rounds": 2,
+        "aggregator_id": "aggregator",
+        "persistor_id": "persistor",
+        "persist_every_n_rounds": 2,
+        "shareable_generator_id": "shareable_generator",
+        "train_task_name": "task_KeyGen",
+        "allow_empty_global_weights": true,
+        "train_timeout": 0,
+        "wait_time_after_min_received": 0
+      }
+    },
+    {
+      "id": "workflow_stat_analytics",
+      "path": "duality_nvflare_workflows.customSAG.customSAG",
+      "args": {
+        "min_clients": 0,
+        "num_rounds": 3,
+        "aggregator_id": "aggregator",
+        "persistor_id": "persistor",
+        "persist_every_n_rounds": 3,
+        "shareable_generator_id": "shareable_generator",
+        "train_task_name": "task_stat_analytics",
+        "allow_empty_global_weights": true,
+        "train_timeout": 0,
+        "wait_time_after_min_received": 0,
+        "workload_args": {
+          "computation_type": "stdev",
+          "global_schema": "global_schema.json",
+          "data_column_id": "Age",
+          "std_type": "population"
+        }
+      }
+    }
+  ],
+  "event_handlers": [
+    "@progress_receiver"
+  ]
+}

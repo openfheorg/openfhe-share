@@ -1,0 +1,1557 @@
+{
+  "version": "1",
+  "computations": {
+    "kaplan-meier": {
+      "properties": {
+        "group_column_id": {
+          "columns": {
+            "sex": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "gender": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "arid1a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11110",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "atm": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:795",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "bap1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:950",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "col9a3": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:2219",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "kdm5c": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11114",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "mtor": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:3942",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "nf2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:7773",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pbrm1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:30064",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pck1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8724",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pik3ca": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8975",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pten": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:9588",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "s100b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10500",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "setd2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:18420",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "smarca4": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11100",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tceb1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10879",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tp53": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11998",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "trmt2b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:25748",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tsc1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12362",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "usp32": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:19143",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "vhl": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12687",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "wnt8a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12788",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "znf800": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:27267",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            }
+          }
+        },
+        "time_column_id": {
+          "columns": {
+            "os": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "os"
+              }
+            },
+            "pfs": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "pfs"
+              }
+            }
+          }
+        },
+        "censoring_column_id": {
+          "columns": {
+            "os_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "os_cnsr"
+              }
+            },
+            "pfs_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "pfs_cnsr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "mean": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resourceType": "Patient",
+              "extractor": "patient_age_years"
+            },
+            "os": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "os"
+              }
+            },
+            "pfs": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "pfs"
+              }
+            },
+            "os_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "os_cnsr"
+              }
+            },
+            "pfs_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "pfs_cnsr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "stdev": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resourceType": "Patient",
+              "extractor": "patient_age_years"
+            },
+            "os": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "os"
+              }
+            },
+            "pfs": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "pfs"
+              }
+            },
+            "os_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "os_cnsr"
+              }
+            },
+            "pfs_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "pfs_cnsr"
+              }
+            }
+          }
+        }
+      }
+    },
+    "chi2": {
+      "properties": {
+        "category_column_1_id": {
+          "columns": {
+            "sex": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "gender": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "arid1a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11110",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "atm": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:795",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "bap1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:950",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "col9a3": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:2219",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "kdm5c": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11114",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "mtor": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:3942",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "nf2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:7773",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pbrm1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:30064",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pck1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8724",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pik3ca": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8975",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pten": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:9588",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "s100b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10500",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "setd2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:18420",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "smarca4": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11100",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tceb1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10879",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tp53": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11998",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "trmt2b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:25748",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tsc1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12362",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "usp32": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:19143",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "vhl": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12687",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "wnt8a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12788",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "znf800": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:27267",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "medication": {
+              "resourceType": "MedicationStatement",
+              "extractor": "medication_names"
+            }
+          }
+        },
+        "category_column_2_id": {
+          "columns": {
+            "sex": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "gender": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "arid1a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11110",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "atm": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:795",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "bap1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:950",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "col9a3": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:2219",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "kdm5c": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11114",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "mtor": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:3942",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "nf2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:7773",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pbrm1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:30064",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pck1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8724",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pik3ca": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8975",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pten": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:9588",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "s100b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10500",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "setd2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:18420",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "smarca4": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11100",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tceb1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10879",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tp53": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11998",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "trmt2b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:25748",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tsc1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12362",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "usp32": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:19143",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "vhl": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12687",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "wnt8a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12788",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "znf800": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:27267",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "medication": {
+              "resourceType": "MedicationStatement",
+              "extractor": "medication_names"
+            }
+          }
+        }
+      }
+    },
+    "t-test": {
+      "properties": {
+        "data_column_id": {
+          "columns": {
+            "age": {
+              "resourceType": "Patient",
+              "extractor": "patient_age_years"
+            },
+            "os": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "os"
+              }
+            },
+            "pfs": {
+              "resourceType": "Observation",
+              "extractor": "observation_component_quantity_by_parent_code_and_component_code",
+              "args": {
+                "parentCode": "35658-4",
+                "componentCode": "pfs"
+              }
+            },
+            "os_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "os_cnsr"
+              }
+            },
+            "pfs_cnsr": {
+              "resourceType": "Observation",
+              "extractor": "observation_value_numeric_by_code",
+              "args": {
+                "code": "pfs_cnsr"
+              }
+            }
+          }
+        },
+        "category_column_1_id": {
+          "columns": {
+            "sex": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "gender": {
+              "resourceType": "Patient",
+              "extractor": "patient_gender"
+            },
+            "arid1a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11110",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "atm": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:795",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "bap1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:950",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "col9a3": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:2219",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "kdm5c": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11114",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "mtor": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:3942",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "nf2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:7773",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pbrm1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:30064",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pck1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8724",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pik3ca": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:8975",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "pten": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:9588",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "s100b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10500",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "setd2": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:18420",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "smarca4": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11100",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tceb1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:10879",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tp53": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:11998",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "trmt2b": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:25748",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "tsc1": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12362",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "usp32": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:19143",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "vhl": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12687",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "wnt8a": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:12788",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "znf800": {
+              "resourceType": "Observation",
+              "extractor": "observation_variant_value_by_parent_code_and_gene_code",
+              "args": {
+                "parentCode": "69548-6",
+                "geneComponentCode": "48018-6",
+                "geneCodeSystem": "http://www.genenames.org/geneId",
+                "geneCode": "HGNC:27267",
+                "valueComponentCode": "LL4033-8",
+                "allowedValues": [
+                  "MUT",
+                  "WT"
+                ]
+              }
+            },
+            "medication": {
+              "resourceType": "MedicationStatement",
+              "extractor": "medication_names"
+            }
+          }
+        }
+      }
+    }
+  }
+}

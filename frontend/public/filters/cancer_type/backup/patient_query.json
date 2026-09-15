@@ -1,0 +1,168 @@
+{
+  "version": "1.1",
+  "resource": "Patient",
+  "controls": [
+    {
+      "id": "cancer_type",
+      "label": "Cancer Type",
+      "type": "select",
+      "default": "Non-Small Cell Lung Cancer",
+      "disabled": false,
+      "options": [
+        {
+          "label": "Biliary Cancer",
+          "value": "Biliary Cancer",
+          "code": "70179006"
+        },
+        {
+          "label": "Bladder Cancer",
+          "value": "Bladder Cancer",
+          "code": "399326009"
+        },
+        {
+          "label": "Breast Carcinoma",
+          "value": "Breast Carcinoma",
+          "code": "254838004"
+        },
+        {
+          "label": "Cancer of Unknown Primary",
+          "value": "Cancer of Unknown Primary",
+          "code": "255052006"
+        },
+        {
+          "label": "Colorectal Cancer",
+          "value": "Colorectal Cancer",
+          "code": "363406005"
+        },
+        {
+          "label": "Endometrial Cancer",
+          "value": "Endometrial Cancer",
+          "code": "254878006"
+        },
+        {
+          "label": "Esophagogastric Carcinoma",
+          "value": "Esophagogastric Carcinoma",
+          "code": "363402007"
+        },
+        {
+          "label": "Gastrointestinal Neuroendocrine Tumor",
+          "value": "Gastrointestinal Neuroendocrine Tumor",
+          "code": "721193002"
+        },
+        {
+          "label": "Gastrointestinal Stromal Tumor",
+          "value": "Gastrointestinal Stromal Tumor",
+          "code": "420120006"
+        },
+        {
+          "label": "Glioma",
+          "value": "Glioma",
+          "code": "393564001"
+        },
+        {
+          "label": "Head and Neck Carcinoma",
+          "value": "Head and Neck Carcinoma",
+          "code": "716659002"
+        },
+        {
+          "label": "Leukemia",
+          "value": "Leukemia",
+          "code": "93143009"
+        },
+        {
+          "label": "Melanoma",
+          "value": "Melanoma",
+          "code": "93655004"
+        },
+        {
+          "label": "Meningothelial Tumor",
+          "value": "Meningothelial Tumor",
+          "code": "302820008"
+        },
+        {
+          "label": "Mesothelioma",
+          "value": "Mesothelioma",
+          "code": "109378008"
+        },
+        {
+          "label": "Non-Hodgkin Lymphoma",
+          "value": "Non-Hodgkin Lymphoma",
+          "code": "1172592001"
+        },
+        {
+          "label": "Non-Small Cell Lung Cancer",
+          "value": "Non-Small Cell Lung Cancer",
+          "code": "254637007"
+        },
+        {
+          "label": "Other",
+          "value": "Other",
+          "code": "372087000"
+        },
+        {
+          "label": "Ovarian Cancer",
+          "value": "Ovarian Cancer",
+          "code": "363443007"
+        },
+        {
+          "label": "Pancreatic Cancer",
+          "value": "Pancreatic Cancer",
+          "code": "363418001"
+        },
+        {
+          "label": "Prostate Cancer",
+          "value": "Prostate Cancer",
+          "code": "254900004"
+        },
+        {
+          "label": "Renal Cell Carcinoma",
+          "value": "Renal Cell Carcinoma",
+          "code": "702391001"
+        },
+        {
+          "label": "Skin Cancer, Non-Melanoma",
+          "value": "Skin Cancer, Non-Melanoma",
+          "code": "372130007"
+        },
+        {
+          "label": "Small Cell Lung Cancer",
+          "value": "Small Cell Lung Cancer",
+          "code": "254632001"
+        },
+        {
+          "label": "Soft Tissue Sarcoma",
+          "value": "Soft Tissue Sarcoma",
+          "code": "269469005"
+        },
+        {
+          "label": "Thyroid Cancer",
+          "value": "Thyroid Cancer",
+          "code": "363478007"
+        }
+      ],
+      "save": {
+        "targets": [
+          {
+            "filter_type": "PATIENT_DATA",
+            "column_name": "cancer_type",
+            "operator": "=",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "full",
+        "editable": true
+      }
+    }
+  ],
+  "defaultsResolver": {
+    "$today": {
+      "fn": "today"
+    },
+    "$today-100y": {
+      "fn": "offset",
+      "years": -100
+    }
+  }
+}

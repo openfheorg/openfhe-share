@@ -1,0 +1,59 @@
+@startuml
+skinparam participantStyle rectangular
+skinparam ParticipantPadding 90
+skinparam NotePadding 16
+
+participant "Clients" as Clients
+participant "Server" as Server
+
+note right of Server
+  * Initialize CryptoContext (CC)
+  * Server KeyGen (skS, pkS), EvalKey parts
+end note
+
+||| 
+
+Server -> Clients: Send CC, pkS, EvalKey parts
+
+||| 
+
+note left of Clients
+  * MultipartyKeyGen(pkS) -> skC, pkC
+  * Generate EvalKey Shares (e.g., MultiKeySwitchGen)
+end note
+
+||| 
+
+Clients -> Server: Send pkC, EvalKey Shares
+
+||| 
+
+note right of Server
+  * Aggregate pkC from all clients with pkS -> mpPK
+  * Aggregate EvalKey Shares -> evalMultAB, etc.
+end note
+
+||| 
+
+Server -> Clients: Send mpPK, evalMultAB
+
+||| 
+
+note left of Clients
+  * Generate final EvalKey Share (evalMultBAB using skC, evalMultAB)
+  * Save mpPK, CC
+end note
+
+||| 
+
+Clients -> Server: Send evalMultBAB
+
+||| 
+
+note right of Server
+  * Aggregate evalMultBAB with server's part -> final EvalMultKey
+  * Insert final EvalKeys into CC
+  * Hold CryptoContext in server process for follow-on workflows
+end note
+
+@enduml

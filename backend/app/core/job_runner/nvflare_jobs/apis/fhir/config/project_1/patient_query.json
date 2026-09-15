@@ -1,0 +1,181 @@
+{
+  "version": "2.0",
+  "resource": {
+    "type": "Patient"
+  },
+  "controls": [
+    {
+      "id": "gender",
+      "field": "gender",
+      "label": "Gender",
+      "type": "select",
+      "default": "",
+      "options": [
+        {
+          "label": "Any",
+          "value": ""
+        },
+        {
+          "label": "Male",
+          "value": "male"
+        },
+        {
+          "label": "Female",
+          "value": "female"
+        }
+      ],
+      "fhir": {
+        "param": "gender",
+        "kind": "search-param"
+      },
+      "query": {
+        "filter_group": "PATIENT_QUERY",
+        "field": "gender",
+        "kind": "search-param",
+        "param": "gender"
+      },
+      "save": {
+        "targets": [
+          {
+            "filter_group": "PATIENT_QUERY",
+            "field": "gender",
+            "operator": "=",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "half"
+      }
+    },
+    {
+      "id": "medication",
+      "field": "medication",
+      "label": "Medication",
+      "type": "select",
+      "default": "",
+      "options": [
+        {
+          "label": "Any",
+          "value": ""
+        },
+        {
+          "label": "Everolimus",
+          "value": "J7527"
+        },
+        {
+          "label": "Nivolumab",
+          "value": "J9299"
+        }
+      ],
+      "fhir": {
+        "kind": "reverse-chain",
+        "has": {
+          "resource": "MedicationStatement",
+          "referenceParam": "subject",
+          "filterParam": "code"
+        }
+      },
+      "query": {
+        "filter_group": "PATIENT_QUERY",
+        "field": "medication",
+        "kind": "reverse-chain-token",
+        "resource": "MedicationStatement",
+        "referenceParam": "subject",
+        "param": "code"
+      },
+      "save": {
+        "targets": [
+          {
+            "filter_group": "PATIENT_QUERY",
+            "field": "medication",
+            "operator": "=",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "half"
+      }
+    },
+    {
+      "id": "birthDate",
+      "field": "birthDate",
+      "label": "Born Between",
+      "type": "date-range",
+      "default": [
+        "$today-100y",
+        "$today"
+      ],
+      "fhir": {
+        "param": "birthdate",
+        "kind": "date-range"
+      },
+      "query": {
+        "filter_group": "PATIENT_QUERY",
+        "field": "birthDate",
+        "kind": "date-range",
+        "param": "birthdate",
+        "startPrefix": "ge",
+        "endPrefix": "le"
+      },
+      "save": {
+        "targets": [
+          {
+            "filter_group": "PATIENT_QUERY",
+            "field": "birthDate",
+            "operator": "BETWEEN",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "full"
+      }
+    },
+    {
+      "id": "death-date",
+      "field": "deceased_date",
+      "label": "Deceased Date Range",
+      "type": "date-range",
+      "default": [
+        "2000-01-01",
+        "$today"
+      ],
+      "fhir": {
+        "param": "death-date",
+        "kind": "date-range"
+      },
+      "query": {
+        "filter_group": "PATIENT_QUERY",
+        "field": "deceased_date",
+        "kind": "date-range",
+        "param": "death-date",
+        "startPrefix": "ge",
+        "endPrefix": "le"
+      },
+      "save": {
+        "targets": [
+          {
+            "filter_group": "PATIENT_QUERY",
+            "field": "deceased_date",
+            "operator": "BETWEEN",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "full"
+      }
+    }
+  ],
+  "defaultsResolver": {
+    "$today": {
+      "fn": "today"
+    },
+    "$today-100y": {
+      "fn": "offset",
+      "years": -100
+    }
+  }
+}

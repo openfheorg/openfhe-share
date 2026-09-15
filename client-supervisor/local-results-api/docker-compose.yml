@@ -1,0 +1,14 @@
+services:
+  duality-client-agent:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DUALITY_NVFLARE_WORKSPACE=/nvflare
+      - DUALITY_CLIENT_AGENT_TOKEN=${DUALITY_CLIENT_AGENT_TOKEN}
+      - DUALITY_UI_ORIGINS=${DUALITY_UI_ORIGINS}
+    volumes:
+      - ${DUALITY_NVFLARE_WORKSPACE}:/nvflare:ro
+    ports:
+      - "127.0.0.1:8088:8088"

@@ -1,0 +1,64 @@
+{
+  "format_version": 2,
+  "runner_sync_timeout": 1.0,
+  "max_runner_sync_tries": 120,
+  "executors": [
+    {
+      "id": "exec",
+      "tasks": [
+        "task_KeyGen",
+        "task_model_upload",
+        "task_stat_analytics",
+        "task_profile_consolidate",
+        "task_reference_stat_analytics",
+        "task_threshold_samples_unsecure",
+        "task_threshold_samples_secure",
+        "task_enc_biomarker_disc",
+        "task_enc_biomarker_score_cache",
+        "task_enc_biomarker_score_postprocess",
+        "task_enc_biomarker_risk_group_postprocess"
+      ],
+      "executor": {
+        "path": "analytics_executor.AnalyticsExecutor",
+        "args": {
+          "filters_path": "custom/filters.json",
+          "leader_client_name": "site1"
+        }
+      }
+    }
+  ],
+  "task_result_filters": [],
+  "task_data_filters": [],
+  "components": [
+    {
+      "id": "profiler",
+      "path": "profiler_runtime.Profiler",
+      "args": {
+        "log_file_name": "profile_summary.json",
+        "role": "client"
+      }
+    },
+    {
+      "id": "progress_sender",
+      "path": "nvflare.app_common.widgets.streaming.AnalyticsSender"
+    },
+    {
+      "id": "convert_to_fed",
+      "path": "nvflare.app_common.widgets.convert_to_fed_event.ConvertToFedEvent",
+      "args": {
+        "events_to_convert": [
+          "analytix_log_stats"
+        ],
+        "fed_event_prefix": "fed."
+      }
+    },
+    {
+      "id": "tb_writer",
+      "path": "nvflare.app_opt.tracking.tb.tb_writer.TBWriter"
+    }
+  ],
+  "event_handlers": [
+    "@progress_sender",
+    "@convert_to_fed"
+  ]
+}

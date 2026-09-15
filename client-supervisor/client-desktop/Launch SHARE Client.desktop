@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=SHARE Client
+Comment=Launch the SHARE Client desktop prototype
+Exec=bash -c 'desktop_file="$1"; app_dir="$(dirname "$desktop_file")"; exec bash "$app_dir/scripts/run-share-client.sh"' _ %k
+Terminal=false
+Categories=Utility;Development;
+StartupNotify=true
+Icon=share-client

@@ -1,0 +1,55 @@
+# Docker build-context excludes (repo root).
+#
+# The standalone deployment images (standalone/docker_stage/*.Dockerfile) build
+# with the repo root as their context, so this whole tree is otherwise tarred and
+# sent to the daemon on every build. Those builds only COPY:
+#   backend/                                (backend.Dockerfile, frontend.Dockerfile use frontend/)
+#   frontend/
+#   standalone/dist/admin_startup_kit.tar   (backend.Dockerfile)
+# The nvflare and mysql images COPY nothing (runtime pip install + volume mounts).
+#
+# Everything below is test/runtime output, a local cache, or a dev artifact that
+# no image build depends on.
+#
+# DO NOT add `dist/` or `build/` here: backend.Dockerfile needs standalone/dist/.
+
+# --- Test & runtime output (the recurring build-context breakers) ---
+# The docker simulator-sweep runner writes root-owned (mode 700) simulator-workspaces/
+# dirs under test-results/; Docker's context sender cannot read them and the build
+# fails with "open ...: permission denied".
+**/test-results
+standalone/job-results
+standalone/nvflare_workspace
+**/nvflare_workspace
+
+# --- VCS ---
+.git
+
+# --- Python caches / bytecode / packaging metadata ---
+**/__pycache__
+*.py[cod]
+*.pyo
+*.pyd
+**/*.egg-info
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+
+# --- Virtual environments ---
+**/.venv
+**/venv
+
+# --- Node ---
+**/node_modules
+
+# --- Local env / secrets (compose reads .env.local from the host at runtime;
+#     it is never needed inside an image layer) ---
+**/.env.local
+**/*.env.local
+
+# --- Editor / OS junk ---
+.vscode
+.idea
+*.code-workspace
+**/.DS_Store
+**/Thumbs.db

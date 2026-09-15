@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "1": "http://duality-hapi-fhir-3-560470172.us-east-1.elb.amazonaws.com/fhir",
+    "2": {
+      "1": "/path/to/site2/fhir_data/Biomarker_MSKChord_FHIR_Data_testing_bundle_site2.json"
+    }
+  }
+}

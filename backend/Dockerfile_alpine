@@ -1,0 +1,27 @@
+FROM python:3.12-alpine
+WORKDIR /app
+
+RUN apk add --no-cache \
+    bash \
+    ca-certificates \
+    gcc \
+    musl-dev \
+    mariadb-dev \
+    libxml2-dev \
+    libxslt-dev \
+    libffi-dev \
+    openssl-dev \
+    libsodium-dev \
+    cargo \
+    rust \
+    pkgconfig \
+    openssh \
+ && update-ca-certificates
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt && pip install --no-cache-dir nvflare
+
+COPY ./app ./app
+
+EXPOSE 8000
+CMD ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000"]

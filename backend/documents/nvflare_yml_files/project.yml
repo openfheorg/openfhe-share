@@ -1,0 +1,184 @@
+api_version: 3
+name: duality_nvflare
+description: Duality NVFlare project
+
+participants:
+  - name: nvflare.example.org
+    type: server
+    org: site1
+    fed_learn_port: 8002
+    admin_port: 8003
+
+  # Clients
+  - name: site1
+    type: client
+    org: site1
+  - name: site2
+    type: client
+    org: site2
+  - name: site3
+    type: client
+    org: site3
+  - name: site4
+    type: client
+    org: site4
+  - name: site5
+    type: client
+    org: site5
+  - name: site6
+    type: client
+    org: site6
+  - name: site7
+    type: client
+    org: site7
+  - name: site8
+    type: client
+    org: site8
+  - name: site9
+    type: client
+    org: site9
+  - name: site10
+    type: client
+    org: site10
+  - name: site11
+    type: client
+    org: site11
+  - name: site12
+    type: client
+    org: site12
+  - name: site13
+    type: client
+    org: site13
+  - name: site14
+    type: client
+    org: site14
+  - name: site15
+    type: client
+    org: site15
+  - name: site16
+    type: client
+    org: site16
+  - name: site17
+    type: client
+    org: site17
+  - name: site18
+    type: client
+    org: site18
+  - name: site19
+    type: client
+    org: site19
+  - name: site20
+    type: client
+    org: site20
+  - name: site21
+    type: client
+    org: site21
+  - name: site22
+    type: client
+    org: site22
+  - name: site23
+    type: client
+    org: site23
+  - name: site24
+    type: client
+    org: site24
+  - name: site25
+    type: client
+    org: site25
+  - name: site26
+    type: client
+    org: site26
+  - name: site27
+    type: client
+    org: site27
+  - name: site28
+    type: client
+    org: site28
+  - name: site29
+    type: client
+    org: site29
+  - name: site30
+    type: client
+    org: site30
+  - name: site31
+    type: client
+    org: site31
+  - name: site32
+    type: client
+    org: site32
+  - name: site33
+    type: client
+    org: site33
+  - name: site34
+    type: client
+    org: site34
+  - name: site35
+    type: client
+    org: site35
+  - name: site36
+    type: client
+    org: site36
+  - name: site37
+    type: client
+    org: site37
+  - name: site38
+    type: client
+    org: site38
+  - name: site39
+    type: client
+    org: site39
+  - name: site40
+    type: client
+    org: site40
+  - name: site41
+    type: client
+    org: site41
+  - name: site42
+    type: client
+    org: site42
+  - name: site43
+    type: client
+    org: site43
+  - name: site44
+    type: client
+    org: site44
+  - name: site45
+    type: client
+    org: site45
+  - name: site46
+    type: client
+    org: site46
+  - name: site47
+    type: client
+    org: site47
+  - name: site48
+    type: client
+    org: site48
+  - name: site49
+    type: client
+    org: site49
+  - name: site50
+    type: client
+    org: site50
+
+  # Admin
+  - name: admin@share.local
+    type: admin
+    org: site1
+    role: project_admin
+
+builders:
+  - path: nvflare.lighter.impl.workspace.WorkspaceBuilder
+    args:
+      template_file:
+        - master_template.yml
+  - path: nvflare.lighter.impl.template.TemplateBuilder
+  - path: nvflare.lighter.impl.static_file.StaticFileBuilder
+    args:
+      overseer_agent:
+        path: nvflare.ha.dummy_overseer_agent.DummyOverseerAgent
+        overseer_exists: false
+        args:
+          sp_end_point: nvflare.example.org:8002:8003
+  - path: nvflare.lighter.impl.cert.CertBuilder
+  - path: nvflare.lighter.impl.signature.SignatureBuilder

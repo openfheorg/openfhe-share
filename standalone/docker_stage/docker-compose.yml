@@ -1,0 +1,165 @@
+services:
+  # MySQL database container (Compose-managed)
+  # - Uses the mysql.Dockerfile you created
+  # - Exposes 3306 inside the container; mapped to 3307 on the host to avoid
+  #   conflicts with any host-installed MySQL already using 3306.
+  # - Initialization SQL files can be mounted from ../mysql_stage/init
+  mysql:
+    container_name: duality-mysql
+    build:
+      context: ../..
+      dockerfile: standalone/docker_stage/mysql.Dockerfile
+    env_file:
+      - ../.env.local
+    environment:
+      # Map your existing app envs to MySQL's official entrypoint envs
+      # If these are not present in .env.local, the defaults from mysql.Dockerfile apply.
+      MYSQL_DATABASE: ${DUALITY_MYSQL_DB:-duality_local}
+      MYSQL_USER: ${DUALITY_MYSQL_USER:-duality}
+      MYSQL_PASSWORD: ${DUALITY_MYSQL_PASSWORD:-dualitypass}
+      # Provide a root password (you can also set MYSQL_ROOT_PASSWORD in .env.local)
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+    volumes:
+      # Persist database files
+      - mysql_data:/var/lib/mysql
+      # Auto-run schema/seed SQL on first startup (optional)
+      - ../mysql_stage/init:/docker-entrypoint-initdb.d
+    ports:
+      # Map container 3306 -> host 3307 (so host Workbench connects to 127.0.0.1:3307)
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    container_name: duality-backend
+    build:
+      context: ../..
+      dockerfile: standalone/docker_stage/backend.Dockerfile
+    env_file:
+      - ../.env.local
+    environment:
+      SHARE_ENV: local
+
+      # MySQL running as a Compose service (recommended)
+      DUALITY_MYSQL_HOST: mysql
+      DUALITY_MYSQL_PORT: 3306
+      DUALITY_MYSQL_USER: ${DUALITY_MYSQL_USER:-duality}
+      DUALITY_MYSQL_PASSWORD: ${DUALITY_MYSQL_PASSWORD:-dualitypass}
+      DUALITY_MYSQL_DB: ${DUALITY_MYSQL_DB:-duality_local}
+
+      # NVFLARE connection info
+      DUALITY_NVFLARE_HOST: ${DUALITY_NVFLARE_HOST}
+      DUALITY_NVFLARE_FED_PORT: ${DUALITY_NVFLARE_FED_PORT}
+      DUALITY_NVFLARE_ADMIN_PORT: ${DUALITY_NVFLARE_ADMIN_PORT}
+
+      # EC2-style workspace path inside containers (shared with nvflare service)
+      DUALITY_NVFLARE_WORKSPACE: /home/ubuntu/nvflare/workspace/duality_nvflare/prod_00
+      # Local backend reads job results from the container path /job-results
+      DUALITY_NVFLARE_JOB_SAVE_LOCATION: /job-results
+      DUALITY_NVFLARE_SUBMITTED_JOBS_LOCATION: /home/ubuntu/nvflare/workspace/duality_nvflare/prod_00/${DUALITY_NVFLARE_HOST}/submitted_jobs
+
+      DUALITY_NVFLARE_ADMIN_NAME: ${DUALITY_NVFLARE_ADMIN_NAME}
+
+      # In-container path to the admin kit tar baked into the image by Dockerfile
+      DUALITY_ADMIN_TAR: /kits/admin_startup_kit.tar
+
+      DUALITY_HOST_UID: ${DUALITY_HOST_UID:-}
+      DUALITY_HOST_GID: ${DUALITY_HOST_GID:-}
+
+    volumes:
+      # Share the EC2-style workspace with backend at the same path as nvflare
+      - ../nvflare_workspace:/home/ubuntu/nvflare/workspace
+      # Local jobs dir mounted at a simple container path
+      - ../job-results:/job-results
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      nvflare:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ../..
+      dockerfile: standalone/docker_stage/frontend.Dockerfile
+    env_file:
+      - ../.env.local
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+
+  nvflare:
+    container_name: duality-nvflare
+    build:
+      context: ../..
+      dockerfile: standalone/docker_stage/nvflare.Dockerfile
+    shm_size: "4g"
+    # Headroom for the biomarker ProcessPoolExecutor workers. Each worker holds the
+    # CryptoContext + eval-key map resident (~0.5-1 GB with the rotation keys), so N pinned
+    # workers need ~N*1.5 GB + server base. Default 16g comfortably fits ~4-6 workers.
+    mem_limit: "${DUALITY_NVFLARE_MEM_LIMIT:-16g}"
+    env_file:
+      - ../.env.local
+    environment:
+      # nvflare container needs to know which host folder to start from
+      DUALITY_NVFLARE_HOST: ${DUALITY_NVFLARE_HOST}
+
+      # Pin the biomarker HE worker count for reproducible profiling
+      # NOTE: when pinned, the memory check is skipped -- size mem_limit above to fit it.
+      OPENFHE_BIOMARKER_MAX_WORKERS: "${OPENFHE_BIOMARKER_MAX_WORKERS:-}"
+
+      # EC2-style base inside the container matches the mount
+      NVFLARE_SERVER_BASE: /home/ubuntu/nvflare/workspace/duality_nvflare/prod_00
+
+      # Make NVFLARE reach the backend via Compose service DNS
+      DUALITY_BACKEND_URL: http://backend:8000
+
+      # Public standalone ships its matching runtime wheel with the branch.
+      DUALITY_NVFLARE_LIB_UPDATE_DISABLED: "1"
+
+      # Export the server's profiler trace to the shared job-results tree so the
+      # backend's report generator can collect it. The server's primary trace is
+      # written under the internal nvflare_workspace mount, which the backend does
+      # not read -- so without this the server's aggregation trace (agg_end +
+      # meta.parallel worker counts) never reaches the taskflow report. Points at
+      # the /trace-sink mount below; the Profiler writes <sink>/traces/<job>/server/.
+      DUALITY_TRACE_SINK_DIR: /trace-sink
+
+      # Hand ownership of trace files written to bind-mounted /trace-sink back to
+      # the host user (launcher sets these to your id -u/-g; empty = no-op).
+      DUALITY_HOST_UID: ${DUALITY_HOST_UID:-}
+      DUALITY_HOST_GID: ${DUALITY_HOST_GID:-}
+
+    volumes:
+      # EC2-style workspace root shared with backend
+      - ../nvflare_workspace:/home/ubuntu/nvflare/workspace
+
+      # Optional local duality_nvflare_lib wheel for standalone development builds
+      - ./local_wheels:/opt/duality/local_wheels:ro
+
+      # Shared job-results, used ONLY as the profiler trace-sink target
+      # (DUALITY_TRACE_SINK_DIR above) -- puts the server's trace alongside the
+      # clients' at job-results/traces/<job>/server/ for the report generator.
+      - ../job-results:/trace-sink
+
+    ports:
+      - "${DUALITY_NVFLARE_FED_PORT:-8002}:8002"
+      - "${DUALITY_NVFLARE_ADMIN_PORT:-8003}:8003"
+      # HTTP status page (if you enable one in NVFLARE)
+      - "8004:8004"
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

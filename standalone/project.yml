@@ -1,0 +1,64 @@
+api_version: 3
+name: duality_nvflare
+description: Duality NVFlare project
+
+participants:
+  - name: 127.0.0.1
+    type: server
+    org: site1
+    fed_learn_port: 8002
+    admin_port: 8003
+
+  # Clients
+  - name: site1
+    type: client
+    org: site1
+  - name: site2
+    type: client
+    org: site2
+  - name: site3
+    type: client
+    org: site3
+  - name: site4
+    type: client
+    org: site4
+  - name: site5
+    type: client
+    org: site5
+  - name: site6
+    type: client
+    org: site6
+  - name: site7
+    type: client
+    org: site7
+  - name: site8
+    type: client
+    org: site8
+  - name: site9
+    type: client
+    org: site9
+  - name: site10
+    type: client
+    org: site10
+
+  # Admin
+  - name: admin@share.local
+    type: admin
+    org: site1
+    role: project_admin
+
+builders:
+  - path: nvflare.lighter.impl.workspace.WorkspaceBuilder
+    args:
+      template_file:
+        - master_template.yml
+  - path: nvflare.lighter.impl.template.TemplateBuilder
+  - path: nvflare.lighter.impl.static_file.StaticFileBuilder
+    args:
+      overseer_agent:
+        path: nvflare.ha.dummy_overseer_agent.DummyOverseerAgent
+        overseer_exists: false
+        args:
+          sp_end_point: 127.0.0.1:8002:8003
+  - path: nvflare.lighter.impl.cert.CertBuilder
+  - path: nvflare.lighter.impl.signature.SignatureBuilder

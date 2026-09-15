@@ -1,0 +1,55 @@
+@startuml
+skinparam participantStyle rectangular
+skinparam ParticipantPadding 90
+skinparam NotePadding 16
+
+participant "Clients" as Clients
+participant "Server" as Server
+
+Server -> Clients: Task metadata\n(min_global_samples, workflow list, HE depth,\nnoise parameters σ and B, …)
+
+||| 
+
+note left of Clients
+  * Pre-count local samples per downstream workflows
+  * Sample multiplicative Gaussian mask shares
+  (noise for secure thresholding)
+  * Encrypt counts and mask terms
+end note
+
+||| 
+
+Clients -> Server: Encrypted local counts ciphertext
+
+||| 
+
+note right of Server
+  * Aggregate across clients to obtain total counts
+  * Subtract the threshold and apply mask
+end note
+
+||| 
+
+Server -> Clients: Aggregated ciphertext
+
+||| 
+
+note left of Clients
+  Compute partial decryption share using the received ciphertext.
+end note
+
+||| 
+
+Clients -> Server: Partial decryption shares
+
+||| 
+
+note right of Server
+  * Aggregate decryption shares to obtain threshold check result.
+  * For each workflow, set **skip flags** for downstream workflows
+end note
+
+||| 
+
+
+@enduml

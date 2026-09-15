@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "max_samples_per_time_step": {
+      "value": 135,
+      "time_grid_start": 0,
+      "time_grid_step": 0.1
+    },
+    "global_count_contingency_table": {
+      "value": 22000,
+      "column_id_1": "PBRM1",
+      "column_id_2": "gender"
+    },
+    "t_test_age_global_counts": {
+      "MUT": 84,
+      "WT": 171
+    }
+  },
+  "columns": {
+    "income": {
+      "type": "numeric",
+      "global_max": 761013,
+      "global_min": 0,
+      "global_count": 107604
+    },
+    "gender": {
+      "type": "categorical",
+      "categories": [
+        "MALE",
+        "FEMALE"
+      ]
+    },
+    "ethnicity": {
+      "type": "categorical",
+      "categories": [
+        "White",
+        "African American",
+        "Asian",
+        "Hispanic",
+        "Other"
+      ]
+    },
+    "Age": {
+      "type": "numeric",
+      "global_max": 100,
+      "global_min": 0,
+      "global_count": 107604
+    },
+    "Sex": {
+      "type": "categorical",
+      "categories": [
+        "Male",
+        "Female"
+      ]
+    },
+    "PBRM1": {
+      "type": "categorical",
+      "categories": [
+        "MUT",
+        "WT"
+      ]
+    },
+    "PFS": {
+      "type": "numeric",
+      "global_max": 62,
+      "global_min": 0
+    },
+    "PFS_CNSR": {
+      "type": "boolean"
+    },
+    "OS": {
+      "type": "numeric",
+      "global_max": 62,
+      "global_min": 0
+    },
+    "OS_CNSR": {
+      "type": "boolean"
+    }
+  }
+}
+

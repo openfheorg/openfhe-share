@@ -1,0 +1,111 @@
+{
+  "version": "1.2",
+  "resource": "Patient",
+  "controls": [
+    {
+      "id": "cancer_type",
+      "label": "Cancer Type",
+      "type": "select",
+      "default": "Non-Small Cell Lung Cancer",
+      "disabled": false,
+      "options": [
+        {
+          "label": "Breast Carcinoma",
+          "value": "Breast Carcinoma",
+          "code": "254838004"
+        },
+        {
+          "label": "Colorectal Cancer",
+          "value": "Colorectal Cancer",
+          "code": "363406005"
+        },
+        {
+          "label": "Non-Small Cell Lung Cancer",
+          "value": "Non-Small Cell Lung Cancer",
+          "code": "254637007"
+        },
+        {
+          "label": "Pancreatic Cancer",
+          "value": "Pancreatic Cancer",
+          "code": "363418001"
+        },
+        {
+          "label": "Prostate Cancer",
+          "value": "Prostate Cancer",
+          "code": "254900004"
+        }
+      ],
+      "save": {
+        "targets": [
+          {
+            "filter_type": "PATIENT_DATA",
+            "column_name": "cancer_type",
+            "operator": "=",
+            "valueFrom": "value"
+          }
+        ]
+      },
+      "ui": {
+        "span": "full",
+        "editable": true
+      },
+      "model_file_lookup_key": true,
+      "model_file_lookup": {
+        "enabled": true
+      }
+    }
+  ],
+  "defaultsResolver": {
+    "$today": {
+      "fn": "today"
+    },
+    "$today-100y": {
+      "fn": "offset",
+      "years": -100
+    }
+  },
+  "biomarker_resource_linkage": {
+    "scope": "condition",
+    "anchor": {
+      "resource": "Condition",
+      "match_control": "cancer_type"
+    },
+    "related_resources": {
+      "Observation": {
+        "reference_path": "focus.reference",
+        "required": true
+      }
+    }
+  },
+  "biomarker_survival_window": {
+    "start": {
+      "sources": [
+        {
+          "resource": "Condition",
+          "path": "onsetDateTime",
+          "aggregation": "min"
+        },
+        {
+          "resource": "Condition",
+          "path": "onsetPeriod.start",
+          "aggregation": "min"
+        }
+      ]
+    },
+    "stop": {
+      "sources": [
+        {
+          "resource": "Patient",
+          "path": "deceasedDateTime",
+          "aggregation": "first"
+        },
+        {
+          "resource": "Patient",
+          "path": "deceasedDate",
+          "aggregation": "first"
+        }
+      ]
+    },
+    "missing_window_behavior": "censor_at_latest_deceased_or_today"
+  }
+}

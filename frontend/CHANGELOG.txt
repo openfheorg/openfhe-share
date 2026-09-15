@@ -1,0 +1,23 @@
+2026-08-06 Chi-Square Labels & Category Casing
+
+- Fixed result cards that labeled their p-value "Log-rank test": the T-Test and Chi-Square cards now name the correct test.
+- Removed the stray Chi-Square Value / p-value rows from the Mean result card (mean has no chi-squared statistic).
+- Corrected the Medication category option ("medication" -> "Medication") to match the backend global-schema key.
+- Backend: participation/config matching now folds case, so job history still matches after the casing correction.
+
+2026-04-29 Results Export Changelog
+
+- Replaced the old PDF-only export flow with a generic "Export As..." flow.
+- Added export options for PDF, Word DOCX, HTML, and PNG.
+- Added export modals for selecting the export format and then selecting report sections.
+- Added reusable modal shell logic for export modals and column configuration modals.
+- Added live export preview in the section selection modal.
+- Aligned PDF, Word, and HTML output with the live export preview format.
+- Added workflow-based export hierarchy: Section -> Workflow ID -> results, analytics metrics, and function config.
+- Added support for exporting Filters Overview as a selectable report section.
+- Treated PNG export as a screen grab of the current Results Viewer instead of a customizable report export.
+- Improved survival export tables with smaller font, tighter spacing, and side-by-side table layout.
+- Made survival raw/table data export options default unchecked.
+- Added logic to prevent Kaplan-Meier charts from being split across PDF and Word pages.
+- Updated workflow selection behavior so all workflow IDs can be selected by default on page load.
+- Added modal UI polish, including grid layout for export format options, hover behavior, and large grey close buttons.

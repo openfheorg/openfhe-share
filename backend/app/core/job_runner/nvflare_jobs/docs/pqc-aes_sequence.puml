@@ -1,0 +1,62 @@
+@startuml
+skinparam participantStyle rectangular
+participant "Site2 & Site3\n(Clients)" as Clients
+participant "Server\n(Router)" as Server
+participant "Site1\n(Client 1 / Coordinator)" as Site1
+
+group Phase 1: Post-Quantum Key Setup (ML-KEM-1024)
+    note over Clients
+      Generate ML-KEM-1024 Keypair
+      (Retain Private Key)
+    end note
+    
+    Clients -> Server: Send ML-KEM Public Key
+    Server -> Site1: Route Public Keys
+    
+    note right of Site1
+      **Encapsulation (PQC)**
+      1. **Encapsulate** secret against Client's Pub Key
+         -> Generates (Shared Secret, KEM Ciphertext)
+      2. Derive KEK from Shared Secret (HKDF)
+      3. Generate Random AES Session Key
+      4. Encrypt AES Key using KEK
+    end note
+
+    Site1 -> Server: Send [KEM Ciphertext + Encrypted AES Key]
+    Server -> Clients: Route Encrypted Key Packages
+    
+    note left of Clients
+      **Decapsulation (PQC)**
+      1. **Decapsulate** KEM Ciphertext 
+         -> Recovers Shared Secret
+      2. Derive KEK (HKDF)
+      3. Decrypt & Store AES Session Key
+    end note
+end
+
+group Phase 2: Secure Routing (Per Round)
+    == Threshold Decryption ==
+    Server -> Clients: Send Ciphertext (FHE)
+    Server -> Site1: Send Ciphertext (FHE)
+    
+    Clients -> Server: Send Partial Decryption Share
+    Server -> Site1: Route Partial Decryption Shares
+    
+    note right of Site1
+      1. Fuse Partial Decryptions
+      2. Obtain Plaintext (Payload)
+    end note
+    
+    == Payload Encryption & Routing ==
+    note right of Site1
+      Encrypt Plaintext using 
+      **Stored AES Keys** for Site2 & Site3
+    end note
+    
+    Site1 -> Server: Send Payload Vector\n[Encrypted_for_Site2, Encrypted_for_Site3]
+    
+    Server -> Clients: Route specific Encrypted Payload Chunk
+    
+    Clients -> Clients: Decrypt using Stored AES Key\n(Obtain Result)
+end
+@enduml

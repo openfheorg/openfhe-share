@@ -1,0 +1,21 @@
+{
+  "format_version": 2,
+  "runner_sync_timeout": 1.0,
+  "executors": [
+    {
+      "id": "exec",
+      "tasks": [
+        "duality_task"
+      ],
+      "executor": {
+        "path": "executor.CustomExecutor",
+        "args": {
+          "filters_path": "custom/filters.json"
+        }
+      }
+    }
+  ],
+  "task_result_filters": [],
+  "task_data_filters": [],
+  "components": []
+}

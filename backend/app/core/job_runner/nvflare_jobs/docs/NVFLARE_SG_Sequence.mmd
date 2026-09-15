@@ -1,0 +1,91 @@
+%% NVFLARE Scatter-and-Gather (1 client, 1 round) — Event Sequence
+sequenceDiagram
+    autonumber
+    participant S as Server
+    participant P as Persistor
+    participant C as Client
+
+    %% ==== Job/Run setup ====
+    S->>S: EventType.ABOUT_TO_START_RUN
+    S->>S: EventType.START_RUN
+    C->>C: EventType.START_RUN
+    S->>S: EventType.START_WORKFLOW
+
+    %% ==== Initial model load ====
+    S->>P: Load initial model
+    P-->>S: Return model
+    S->>S: AppEventType.INITIAL_MODEL_LOADED
+
+    %% ==== Round r starts ====
+    S->>S: AppEventType.ROUND_STARTED
+
+    %% ==== Client pulls task ====
+    C->>C: EventType.BEFORE_PULL_TASK
+    C->>S: PullTask (request work)
+
+    %% ==== Server prepares/assigns task (with global model) ====
+    S->>S: EventType.BEFORE_PROCESS_TASK_REQUEST
+    S->>S: AppEventType.BEFORE_TRAIN_TASK
+    opt Server outgoing filters configured
+        S->>S: EventType.BEFORE_TASK_DATA_FILTER
+        S->>S: EventType.AFTER_TASK_DATA_FILTER
+    end
+    S->>S: EventType.TASK_ASSIGNMENT_SENT
+    S->>C: Send Train Task (Shareable w/ global model)
+    S->>S: EventType.AFTER_PROCESS_TASK_REQUEST
+
+    %% ==== Client receives task ====
+    C-->>C: EventType.AFTER_PULL_TASK
+    opt Client incoming filters configured
+        C->>C: EventType.BEFORE_TASK_DATA_FILTER
+        C->>C: EventType.AFTER_TASK_DATA_FILTER
+    end
+
+    %% ==== Client executes task (local train/eval) ====
+    C->>C: EventType.BEFORE_TASK_EXECUTION
+    C->>C: AppEventType.BEFORE_TRAIN
+    C->>C: AppEventType.TRAINING_STARTED
+    note right of C: Local compute happens here
+    C->>C: AppEventType.AFTER_TRAIN
+    C->>C: AppEventType.TRAIN_DONE
+    C->>C: EventType.AFTER_TASK_EXECUTION
+
+    %% ==== Client prepares result & sends ====
+    C->>C: EventType.BEFORE_TASK_RESULT_FILTER
+    C->>C: EventType.AFTER_TASK_RESULT_FILTER
+    C->>C: EventType.BEFORE_SEND_TASK_RESULT
+    C->>S: Send Result (Shareable)
+    C->>C: EventType.AFTER_SEND_TASK_RESULT
+
+    %% ==== Server receives submission ====
+    S-->>S: EventType.TASK_RESULT_RECEIVED
+    opt Server incoming filters configured
+        S->>S: EventType.BEFORE_TASK_RESULT_FILTER
+        S->>S: EventType.AFTER_TASK_RESULT_FILTER
+    end
+    S->>S: EventType.BEFORE_PROCESS_SUBMISSION
+    S->>S: AppEventType.BEFORE_CONTRIBUTION_ACCEPT
+    note right of S: Accept/update per-site state
+    S->>S: AppEventType.AFTER_CONTRIBUTION_ACCEPT
+    S->>S: EventType.AFTER_PROCESS_SUBMISSION
+
+    %% ==== Aggregation & global update ====
+    S->>S: AppEventType.BEFORE_AGGREGATION
+    note right of S: Aggregate (single client = adopt)
+    S->>S: AppEventType.AFTER_AGGREGATION
+    S->>S: AppEventType.GLOBAL_WEIGHTS_UPDATED
+
+    %% ==== Optional: persist global ====
+    opt Persist global model this round
+        S->>S: AppEventType.BEFORE_LEARNABLE_PERSIST
+        S->>P: Save global model
+        P-->>S: Persist OK
+        S->>S: AppEventType.AFTER_LEARNABLE_PERSIST
+    end
+
+    %% ==== Round r ends & run ends ====
+    S->>S: AppEventType.ROUND_DONE
+    S->>S: EventType.CHECK_END_RUN_READINESS
+    S->>S: EventType.END_WORKFLOW
+    S->>S: EventType.END_RUN
+    C->>C: EventType.END_RUN

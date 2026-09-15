@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "baseFormatter": {
+      "()": "nvflare.fuel.utils.log_utils.BaseFormatter",
+      "fmt": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "customFormatter": {
+      "()": "nvflare.fuel.utils.log_utils.BaseFormatter",
+      "fmt": "%(module)s - %(levelname)s - %(message)s"
+    }
+  },
+  "filters": {
+    "CustomOnlyFilter": {
+      "()": "nvflare.fuel.utils.log_utils.LoggerNameFilter",
+      "logger_names": ["custom"]
+    }
+  },
+  "handlers": {
+    "consoleHandler": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "baseFormatter",
+      "stream": "ext://sys.stdout"
+    },
+    "customLogFileHandler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "customFormatter",
+      "filters": ["CustomOnlyFilter"],
+      "filename": "audit_log.txt",
+      "maxBytes": 20971520,
+      "backupCount": 10
+    },
+    "logFileHandler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "baseFormatter",
+      "filename": "log.txt",
+      "maxBytes": 20971520,
+      "backupCount": 10
+    }
+  },
+  "loggers": {
+    "custom": {
+      "level": "DEBUG",
+      "handlers": ["customLogFileHandler"],
+      "propagate": false
+    }
+  },
+  "root": {
+    "level": "INFO",
+    "handlers": ["consoleHandler", "logFileHandler"]
+  }
+}

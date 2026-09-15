@@ -1,0 +1,110 @@
+%% NVFLARE Scatter-and-Gather (1 client, 1 round) — Event Sequence with Compute/Latency Windows
+sequenceDiagram
+    autonumber
+    participant S as Server
+    participant P as Persistor
+    participant C as Client
+
+    %% ==== Job/Run setup ====
+    S->>S: EventType.ABOUT_TO_START_RUN
+    S->>S: EventType.START_RUN
+    C->>C: EventType.START_RUN
+    S->>S: EventType.START_WORKFLOW
+
+    %% ==== Initial model load ====
+    S->>P: Load initial model
+    P-->>S: Return model
+    S->>S: AppEventType.INITIAL_MODEL_LOADED
+
+    %% ==== Round r starts ====
+    S->>S: AppEventType.ROUND_STARTED
+
+    %% ==== Downstream RTT (S→C) measured at client ====
+    rect rgba(210,235,255,0.6)
+    note over C: Downstream RTT (S→C) = AFTER_PULL_TASK − BEFORE_PULL_TASK
+    C->>C: EventType.BEFORE_PULL_TASK
+    C->>S: PullTask (request work)
+    end
+
+    %% ==== Server prepares/assigns task (with global model) ====
+    rect rgba(255,250,205,0.6)
+    note over S: Server Dispatch Compute = AFTER_PROCESS_TASK_REQUEST − BEFORE_PROCESS_TASK_REQUEST
+    S->>S: EventType.BEFORE_PROCESS_TASK_REQUEST
+    S->>S: AppEventType.BEFORE_TRAIN_TASK
+    opt Server outgoing filters configured
+        S->>S: EventType.BEFORE_TASK_DATA_FILTER
+        S->>S: EventType.AFTER_TASK_DATA_FILTER
+    end
+    S->>S: EventType.TASK_ASSIGNMENT_SENT
+    S->>C: Send Train Task (Shareable w/ global model)
+    S->>S: EventType.AFTER_PROCESS_TASK_REQUEST
+    end
+
+    rect rgba(210,235,255,0.6)
+    C-->>C: EventType.AFTER_PULL_TASK
+    end
+
+    %% ==== Client compute (strict, incl. filters) ====
+    rect rgba(220,255,220,0.6)
+    note over C: Client Compute (strict) = AFTER_TASK_RESULT_FILTER − BEFORE_TASK_DATA_FILTER
+    opt Client incoming filters configured
+        C->>C: EventType.BEFORE_TASK_DATA_FILTER
+        C->>C: EventType.AFTER_TASK_DATA_FILTER
+    end
+    C->>C: EventType.BEFORE_TASK_EXECUTION
+    C->>C: AppEventType.BEFORE_TRAIN
+    C->>C: AppEventType.TRAINING_STARTED
+    note right of C: Local compute happens here
+    C->>C: AppEventType.AFTER_TRAIN
+    C->>C: AppEventType.TRAIN_DONE
+    C->>C: EventType.AFTER_TASK_EXECUTION
+    C->>C: EventType.BEFORE_TASK_RESULT_FILTER
+    C->>C: EventType.AFTER_TASK_RESULT_FILTER
+    end
+
+    %% ==== Upstream RTT (C→S) measured at client ====
+    rect rgba(255,225,235,0.6)
+    note over C: Upstream RTT (C→S) = AFTER_SEND_TASK_RESULT − BEFORE_SEND_TASK_RESULT
+    C->>C: EventType.BEFORE_SEND_TASK_RESULT
+    C->>S: Send Result (Shareable)
+    C->>C: EventType.AFTER_SEND_TASK_RESULT
+    end
+
+    %% ==== Server accept/process compute ====
+    rect rgba(255,235,210,0.7)
+    note over S: Server Accept Compute = AFTER_PROCESS_SUBMISSION − TASK_RESULT_RECEIVED
+    S-->>S: EventType.TASK_RESULT_RECEIVED
+    opt Server incoming filters configured
+        S->>S: EventType.BEFORE_TASK_RESULT_FILTER
+        S->>S: EventType.AFTER_TASK_RESULT_FILTER
+    end
+    S->>S: EventType.BEFORE_PROCESS_SUBMISSION
+    S->>S: AppEventType.BEFORE_CONTRIBUTION_ACCEPT
+    note right of S: Accept/update per-site state
+    S->>S: AppEventType.AFTER_CONTRIBUTION_ACCEPT
+    S->>S: EventType.AFTER_PROCESS_SUBMISSION
+    end
+
+    %% ==== Server aggregation compute ====
+    rect rgba(255,240,220,0.8)
+    note over S: Server Aggregation Compute = AFTER_AGGREGATION − BEFORE_AGGREGATION
+    S->>S: AppEventType.BEFORE_AGGREGATION
+    note right of S: Aggregate (single client = adopt)
+    S->>S: AppEventType.AFTER_AGGREGATION
+    end
+    S->>S: AppEventType.GLOBAL_WEIGHTS_UPDATED
+
+    %% ==== Optional: persist global ====
+    opt Persist global model this round
+        S->>S: AppEventType.BEFORE_LEARNABLE_PERSIST
+        S->>P: Save global model
+        P-->>S: Persist OK
+        S->>S: AppEventType.AFTER_LEARNABLE_PERSIST
+    end
+
+    %% ==== Round r ends & run ends ====
+    S->>S: AppEventType.ROUND_DONE
+    S->>S: EventType.CHECK_END_RUN_READINESS
+    S->>S: EventType.END_WORKFLOW
+    S->>S: EventType.END_RUN
+    C->>C: EventType.END_RUN
